@@ -102,11 +102,6 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
-          <archive>
-            <manifestEntries>
-              <Implementation-Build>${buildNumber}</Implementation-Build>
-            </manifestEntries>
-          </archive>
           <overlays>
             <overlay>
               <groupId>org.onehippo.cms7</groupId>
@@ -125,6 +120,22 @@
           <container>
             <type>remote</type>
           </container>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>com.googlecode.mavenfilesync</groupId>
+        <artifactId>maven-filesync-plugin</artifactId>
+        <configuration>
+          <mappings>
+            <mapping>
+              <sourceFolder>src/main/resources</sourceFolder>
+              <destinationFolder>@../target/tomcat${cargo.tomcat.major.version}x/webapps/cms/WEB-INF/classes</destinationFolder>
+            </mapping>
+            <mapping>
+              <sourceFolder>src/main/webapp</sourceFolder>
+              <destinationFolder>@../target/tomcat${cargo.tomcat.major.version}x/webapps/cms</destinationFolder>
+            </mapping>
+          </mappings>
         </configuration>
       </plugin>
     </plugins>

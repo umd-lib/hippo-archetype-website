@@ -79,6 +79,10 @@
     <hippoecm.export.dir>${project.basedir}/content/src/main/resources</hippoecm.export.dir>
      -->
      
+     <filesync.override>false</filesync.override>
+     
+     <maven.plugins.filesync.version>1.0.0</maven.plugins.filesync.version>
+     
   </properties>
 
   <repositories>
@@ -195,6 +199,25 @@
 
   <build>
     <defaultGoal>package</defaultGoal>
+    <pluginManagement>
+      <plugins>
+        <plugin>
+          <groupId>com.googlecode.mavenfilesync</groupId>
+          <artifactId>maven-filesync-plugin</artifactId>
+          <version>${maven.plugins.filesync.version}</version>
+          <configuration>
+            <override>${filesync.override}</override>
+          </configuration>
+          <executions>
+            <execution>
+              <goals>
+                <goal>generate</goal>
+              </goals>
+            </execution>
+          </executions>
+        </plugin>
+      </plugins>
+    </pluginManagement>
   </build>
 
   <profiles>
