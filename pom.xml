@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>7.6.1</version>
+    <version>7.6.2</version>
   </parent>
 
   <name>My Hippo Project</name>
@@ -61,15 +61,9 @@
     <jstl.version>1.1.2</jstl.version>
     <taglibs.version>1.1.2</taglibs.version>
 
-    <hippo.cms.version>2.20.02</hippo.cms.version>
-    <hippo.addon-publication-workflow.version>2.20.02</hippo.addon-publication-workflow.version>
-    <hippo.packages.version>2.20.02</hippo.packages.version>
-
     <commons.lang.version>2.6</commons.lang.version>
-
-    <junit.version>4.8.2</junit.version>
-
     <freemarker.version>2.3.18</freemarker.version>
+    <junit.version>4.8.2</junit.version>
     <lib.spring-js.version>2.0.5.RELEASE</lib.spring-js.version>
     
     <!-- uncomment to enable automatic export 
@@ -77,9 +71,8 @@
      -->
      
     <filesync.override>false</filesync.override>
-     
     <maven.plugins.filesync.version>1.0.0</maven.plugins.filesync.version>
-     
+
   </properties>
 
   <repositories>
