@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>7.6.0</version>
+    <version>7.6.1</version>
   </parent>
 
   <name>My Hippo Project</name>
@@ -61,18 +61,11 @@
     <jstl.version>1.1.2</jstl.version>
     <taglibs.version>1.1.2</taglibs.version>
 
-    <commons.lang.version>2.5</commons.lang.version>
-    <slf4j.version>1.5.6</slf4j.version>
-    <log4j.version>1.2.14</log4j.version>
+    <commons.lang.version>2.6</commons.lang.version>
 
-    <junit.version>4.5</junit.version>
+    <junit.version>4.8.2</junit.version>
 
-    <xalan.version>2.4.1</xalan.version>
-    <xercesImpl.version>2.9.1</xercesImpl.version>
-    <xml-apis.version>2.0.2</xml-apis.version>
-
-    <atomikos.version>3.1.4</atomikos.version>
-    <freemarker.version>2.3.16</freemarker.version>
+    <freemarker.version>2.3.18</freemarker.version>
     <lib.spring-js.version>2.0.5.RELEASE</lib.spring-js.version>
     
     <!-- uncomment to enable automatic export 
@@ -87,7 +80,7 @@
 
   <repositories>
     <repository>
-      <id>hippo</id>
+      <id>hippo-maven2</id>
       <name>Hippo maven 2 repository.</name>
       <url>http://maven.onehippo.com/maven2/</url>
     </repository>
@@ -96,15 +89,6 @@
   <dependencyManagement>
     <dependencies>
     
-      <!-- Because we use jcl-over-slf4j, but a large number of mvn projects declare commons-logging
-           as a dependency, we exclude commons-logging here by adding it as provided dependency -->
-      <dependency>
-        <groupId>commons-logging</groupId>
-        <artifactId>commons-logging</artifactId>
-        <version>1.1.1</version>
-        <scope>provided</scope>
-      </dependency>
-      
       <!-- other predefined runtime scope versioned dependencies -->
       <dependency>
         <groupId>javax.servlet</groupId>
@@ -120,49 +104,7 @@
         <scope>runtime</scope>
       </dependency>
 
-      <dependency>
-        <groupId>xml-apis</groupId>
-        <artifactId>xml-apis</artifactId>
-        <version>${xml-apis.version}</version>
-        <scope>runtime</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>xerces</groupId>
-        <artifactId>xercesImpl</artifactId>
-        <version>${xercesImpl.version}</version>
-        <scope>runtime</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>xalan</groupId>
-        <artifactId>xalan</artifactId>
-        <version>${xalan.version}</version>
-        <scope>runtime</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>jcl-over-slf4j</artifactId>
-        <version>${slf4j.version}</version>
-        <scope>runtime</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-log4j12</artifactId>
-        <version>${slf4j.version}</version>
-        <scope>runtime</scope>
-      </dependency>
-
-      <dependency>
-        <groupId>log4j</groupId>
-        <artifactId>log4j</artifactId>
-        <version>${log4j.version}</version>
-        <scope>test</scope>
-      </dependency>
-
-      <!-- other predefined compile scope versioned dependencies -->
+     <!-- other predefined compile scope versioned dependencies -->
       <dependency>
         <groupId>commons-lang</groupId>
         <artifactId>commons-lang</artifactId>
@@ -182,12 +124,6 @@
       </dependency>
       
       <dependency>
-        <groupId>org.slf4j</groupId>
-        <artifactId>slf4j-api</artifactId>
-        <version>${slf4j.version}</version>
-      </dependency>
-
-      <dependency>
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>${junit.version}</version>
@@ -196,7 +132,7 @@
 
     </dependencies>
   </dependencyManagement>
-
+  
   <build>
     <defaultGoal>package</defaultGoal>
     <pluginManagement>
@@ -239,15 +175,7 @@
 
     <profile>
       <id>cargo.run</id>
-      <dependencies>
-        <dependency>
-          <groupId>log4j</groupId>
-          <artifactId>log4j</artifactId>
-          <version>${log4j.version}</version>
-          <scope>provided</scope>
-        </dependency>
-      </dependencies>
-      <build>
+     <build>
         <plugins>
           <plugin>
             <groupId>org.codehaus.cargo</groupId>
@@ -273,17 +201,10 @@
               </configuration>
               <container>
                 <systemProperties>
-                  <log4j.configuration>file:${project.basedir}/conf/log4j.xml</log4j.configuration>
+                  <log4j.configuration>file:${project.basedir}/conf/log4j-dev.xml</log4j.configuration>
                   <rebel.log4j-plugin>true</rebel.log4j-plugin>
                 </systemProperties>
-                <dependencies>
-                  <dependency>
-                    <groupId>log4j</groupId>
-                    <artifactId>log4j</artifactId>
-                    <classpath>shared</classpath>
-                  </dependency>
-                </dependencies>
-              </container>
+             </container>
             </configuration>
           </plugin>
         </plugins>
@@ -291,16 +212,25 @@
     </profile>
 
     <profile>
-      <id>dist</id>
-      <dependencies>
-        <dependency>
-          <groupId>log4j</groupId>
-          <artifactId>log4j</artifactId>
-          <version>${log4j.version}</version>
-          <scope>provided</scope>
-        </dependency>
-      </dependencies>
-      <build>
+     <id>dist</id>
+     <dependencies>
+       <dependency>
+         <groupId>org.slf4j</groupId>
+         <artifactId>slf4j-log4j12</artifactId>
+         <scope>provided</scope>
+       </dependency>
+       <dependency>
+         <groupId>org.slf4j</groupId>
+         <artifactId>jcl-over-slf4j</artifactId>
+         <scope>provided</scope>
+       </dependency>
+       <dependency>
+         <groupId>log4j</groupId>
+         <artifactId>log4j</artifactId>
+         <scope>provided</scope>
+       </dependency>
+     </dependencies>
+     <build>
         <defaultGoal>validate</defaultGoal>
         <plugins>
           <plugin>

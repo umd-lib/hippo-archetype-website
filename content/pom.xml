@@ -10,8 +10,6 @@
 
   <name>My Hippo Project content</name>
   <description>My Hippo Project Content</description>
-  <groupId>org.example</groupId>
   <artifactId>myhippoproject-content</artifactId>
-  <packaging>jar</packaging>
 
 </project>

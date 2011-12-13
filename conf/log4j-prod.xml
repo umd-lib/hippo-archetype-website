@@ -1,22 +1,4 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<!--
-
-    Copyright (C) 2011 Hippo B.V.
-
-    Licensed under the Apache License, Version 2.0 (the "License");
-    you may not use this file except in compliance with the License.
-    You may obtain a copy of the License at
-
-            http://www.apache.org/licenses/LICENSE-2.0
-
-    Unless required by applicable law or agreed to in writing, software
-    distributed under the License is distributed on an "AS IS" BASIS,
-    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-    See the License for the specific language governing permissions and
-    limitations under the License.
-
--->
-
 <!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
 <log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
 
@@ -68,78 +50,75 @@
   <!-- ====================================================================== -->
 
   <!-- CMS logging -->
-  <category name="org.apache.jackrabbit.core">
+  <logger name="org.apache.jackrabbit.core">
     <level value="warn"/>
-  </category>
-  <category name="org.apache.jackrabbit.extractor">
+  </logger>
+  <logger name="org.apache.jackrabbit.extractor">
     <level value="warn"/>
-  </category>
-  <category name="org.apache.jackrabbit">
+  </logger>
+  <logger name="org.apache.jackrabbit">
     <level value="warn"/>
-  </category>
-  <category name="org.hippoecm.repository">
+  </logger>
+  <logger name="org.hippoecm.repository">
     <level value="warn"/>
-  </category>
-  <category name="org.hippoecm.frontend">
+  </logger>
+  <logger name="org.hippoecm.frontend">
     <level value="warn"/>
-  </category>
-  <category name="org.apache.wicket">
+  </logger>
+  <logger name="org.apache.wicket">
     <level value="warn"/>
-  </category>
+  </logger>
 
   <!-- audit logging -->
-  <category additivity="false" name="org.hippoecm.repository.api.Workflow">
+  <logger additivity="false" name="org.hippoecm.repository.api.Workflow">
     <level value="info"/>
     <appender-ref ref="audit"/>
-  </category>
+  </logger>
 
   <!-- Site logging -->
-  <category additivity="false" name="org.hippoecm.hst">
+  <logger additivity="false" name="org.hippoecm.hst">
     <level value="warn"/>
     <appender-ref ref="site"/>
     <appender-ref ref="console"/>
-  </category>
+  </logger>
 
   <!-- too many caching warnings -->
-  <category name="org.apache.jackrabbit.core.state">
+  <logger name="org.apache.jackrabbit.core.state">
     <level value="error"/>
-  </category>
-  <category name="org.apache.jackrabbit.core.ItemManager">
+  </logger>
+  <logger name="org.apache.jackrabbit.core.ItemManager">
     <level value="error"/>
-  </category>
-  <category name="org.apache.jackrabbit.core.persistence.bundle.util.LRUNodeIdCache">
+  </logger>
+  <logger name="org.apache.jackrabbit.core.persistence.bundle.util.LRUNodeIdCache">
     <level value="error"/>
-  </category>
+  </logger>
 
-  <!-- ignore wicket localizer warnings -->
-  <category name="org.apache.wicket.Localizer">
+  <!-- ignore wicket localized warnings -->
+  <logger name="org.apache.wicket.Localizer">
     <level value="error"/>
-  </category>
+  </logger>
 
   <!-- ignore DataNucleus errors -->
-  <category name="DataNucleus.Plugin">
+  <logger name="DataNucleus.Plugin">
     <level value="fatal"/>
-  </category>
-  <category name="DataNucleus.ClassLoading">
+  </logger>
+  <logger name="DataNucleus.ClassLoading">
     <level value="fatal"/>
-  </category>
-  <category name="DataNucleus.Enhancer">
+  </logger>
+  <logger name="DataNucleus.Enhancer">
     <level value="fatal"/>
-  </category>
+  </logger>
 
   <!-- more info wanted -->
-  <category name="org.apache.jackrabbit.core.persistence.bundle">
+  <logger name="org.apache.jackrabbit.core.persistence.pool">
     <level value="info"/>
-  </category>
-  <category name="org.hippoecm.repository.jackrabbit.persistence">
+  </logger>
+  <logger name="org.hippoecm.repository.jackrabbit.persistence">
     <level value="info"/>
-  </category>
-  <category name="org.hippoecm.repository.updater">
+  </logger>
+  <logger name="org.hippoecm.repository.updater">
     <level value="info"/>
-  </category>
-  <category name="org.hippoecm.repository.export">
-    <level value="info"/>
-  </category>
+  </logger>
 
   <root>
     <level value="warn"/>

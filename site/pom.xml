@@ -11,12 +11,7 @@
   <name>My Hippo Project site</name>
   <description>My Hippo Project Site</description>
   <artifactId>myhippoproject-site</artifactId>
-  <groupId>org.example</groupId>
   <packaging>war</packaging>
-
-  <properties>
-    <site.log.dir.name>${site.webapp.root}/WEB-INF/logs</site.log.dir.name>
-  </properties>
 
   <dependencies>
 
@@ -51,43 +46,8 @@
     </dependency>
 
     <dependency>
-      <groupId>xml-apis</groupId>
-      <artifactId>xml-apis</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>xerces</groupId>
-      <artifactId>xercesImpl</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>xalan</groupId>
-      <artifactId>xalan</artifactId>
-    </dependency>
-
-    <dependency>
       <groupId>commons-lang</groupId>
       <artifactId>commons-lang</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-api</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>jcl-over-slf4j</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.slf4j</groupId>
-      <artifactId>slf4j-log4j12</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>log4j</groupId>
-      <artifactId>log4j</artifactId>
     </dependency>
 
     <dependency>
@@ -117,7 +77,6 @@
   </dependencies>
 
   <build>
-    <defaultGoal>package</defaultGoal>
     <finalName>site</finalName>
     <plugins>
       <plugin>
