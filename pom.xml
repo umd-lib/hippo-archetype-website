@@ -61,6 +61,10 @@
     <jstl.version>1.1.2</jstl.version>
     <taglibs.version>1.1.2</taglibs.version>
 
+    <hippo.cms.version>2.20.02</hippo.cms.version>
+    <hippo.addon-publication-workflow.version>2.20.02</hippo.addon-publication-workflow.version>
+    <hippo.packages.version>2.20.02</hippo.packages.version>
+
     <commons.lang.version>2.6</commons.lang.version>
 
     <junit.version>4.8.2</junit.version>
@@ -72,9 +76,9 @@
     <hippoecm.export.dir>${project.basedir}/content/src/main/resources</hippoecm.export.dir>
      -->
      
-     <filesync.override>false</filesync.override>
+    <filesync.override>false</filesync.override>
      
-     <maven.plugins.filesync.version>1.0.0</maven.plugins.filesync.version>
+    <maven.plugins.filesync.version>1.0.0</maven.plugins.filesync.version>
      
   </properties>
 
@@ -198,6 +202,13 @@
                     </properties>
                   </deployable>
                 </deployables>
+                <configfiles>
+                  <configfile>
+                    <file>${project.basedir}/conf/context.xml</file>
+                    <todir>conf/</todir>
+                    <tofile>context.xml</tofile>
+                  </configfile>
+                </configfiles>
               </configuration>
               <container>
                 <systemProperties>

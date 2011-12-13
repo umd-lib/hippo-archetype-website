@@ -27,6 +27,11 @@
       <outputDirectory>/conf</outputDirectory>
       <destName>log4j.dtd</destName>
     </file>
+    <file>
+      <source>conf/context.xml</source>
+      <outputDirectory>/conf</outputDirectory>
+      <destName>context.xml</destName>
+    </file>
   </files>
   <dependencySets>
     <dependencySet>

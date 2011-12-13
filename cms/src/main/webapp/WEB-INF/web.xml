@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
-
 <web-app id="hippo-ecm">
 
   <!-- General configuration -->
@@ -12,12 +11,23 @@
     <param-value>rmi://localhost:1099/hipporepository</param-value>
     <description>The address of the repository</description>
   </context-param>
+  <context-param>
+    <param-name>repository-directory</param-name>
+    <param-value>storage</param-value>
+    <description>The (relative) location where to store files</description>
+  </context-param>
+  <context-param>
+    <param-name>repository-config</param-name>
+    <param-value>repository.xml</param-value>
+    <description>The location of the repository configuration file. Unless the location
+    starts with file://, the location is retrieved from within the application package as
+    resource.</description>
+  </context-param>
 
   <!--Remap resources as anti-cache-->
   <filter>
     <filter-name>ResourceAntiCache</filter-name>
     <filter-class>org.hippoecm.frontend.ResourceRewriteFilter</filter-class>
-    <!-- enable this parameter to fix the prefix used to cache resources -->
     <!-- init-param>
       <param-name>prefix</param-name>
       <param-value>nocache</param-value>
@@ -41,7 +51,7 @@
       <param-value>/*</param-value>
     </init-param>
     <init-param>
-      <param-name>configuration</param-name>
+      <param-name>wicket.configuration</param-name>
       <param-value>deployment</param-value>
     </init-param>
     <init-param>
@@ -63,13 +73,13 @@
       <param-value>console</param-value>
     </init-param>
     <init-param>
-      <param-name>configuration</param-name>
+      <param-name>wicket.configuration</param-name>
       <param-value>deployment</param-value>
     </init-param>
     <init-param>
       <param-name>repository-address</param-name>
       <param-value>vm://</param-value>
-    </init-param>    
+    </init-param>
   </filter>
 
   <filter-mapping>
@@ -112,18 +122,6 @@
   <servlet>
     <servlet-name>Repository</servlet-name>
     <servlet-class>org.hippoecm.repository.RepositoryServlet</servlet-class>
-    <init-param>
-      <param-name>repository-directory</param-name>
-      <param-value>WEB-INF/storage</param-value>
-      <description>The (relative) location where to store files</description>
-    </init-param>
-    <init-param>
-      <param-name>repository-config</param-name>
-      <param-value>repository.xml</param-value>
-      <description>The location of the repository configuration file. Unless the location
-      starts with file://, the location is retrieved from within the application package as
-      resource.</description>
-    </init-param>
     <load-on-startup>4</load-on-startup>
   </servlet>
 
