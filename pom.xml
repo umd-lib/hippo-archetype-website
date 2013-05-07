@@ -60,13 +60,23 @@
 
   <properties>
 
+    <!-- Once the hippo-cms7-release 7.7.1 has been released and you have bumped 
+    the parent version to 7.7.1 then the property definitions below can be removed -->
+    
+    <!--***START temporary override of versions*** -->
+    <hippo.repository.version>2.22.02</hippo.repository.version>
+    <hippo.cms.version>2.22.01</hippo.cms.version>
+    <hippo.addon-channel-manager.version>2.22.01</hippo.addon-channel-manager.version> 
+    <hippo.addon-brokenlinks.version>2.22.00</hippo.addon-brokenlinks.version>
+    <hippo.packages.version>2.22.01</hippo.packages.version>
+    <hippo.hst.version>2.24.01</hippo.hst.version>
+    <forge.sitemap.version>1.02.01</forge.sitemap.version>
+    <!-- ***END temporary override of versions*** -->
+
     <jstl.version>1.1.2</jstl.version>
     <taglibs.version>1.1.2</taglibs.version>
-
     <commons.lang.version>2.6</commons.lang.version>
-
     <junit.version>4.10</junit.version>
-
     <freemarker.version>2.3.18</freemarker.version>
     
     <!-- uncomment to enable automatic export 
@@ -74,9 +84,7 @@
      -->
      
      <filesync.override>false</filesync.override>
-
-     <maven.plugins.filesync.version>1.0.0</maven.plugins.filesync.version>     
-
+     <maven.plugins.filesync.version>1.0.0</maven.plugins.filesync.version>    
   </properties>
 
   <repositories>
@@ -238,8 +246,7 @@
               </configuration>
               <container>
                 <systemProperties>
-                  <derby.stream.error.file>${project.basedir}/target/derby/derby.log</derby.stream.error.file>
-                  <derby.system.home>${project.basedir}/target/derby</derby.system.home>
+                  <derby.stream.error.file>${project.basedir}/target/derby.log</derby.stream.error.file>
                   <log4j.configuration>file:${project.basedir}/conf/log4j-dev.xml</log4j.configuration>
                   <rebel.log4j-plugin>true</rebel.log4j-plugin>
                 </systemProperties>

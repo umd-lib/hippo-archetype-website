@@ -92,7 +92,6 @@ public abstract class BaseComponent extends BaseHstComponent {
 
 
             if(info instanceof PageableListInfo && ((PageableListInfo)info).isPagesVisible()) {
-                request.setAttribute("totalSize", result.getTotalSize());
                 // add pages
                 if(result.getTotalSize() > pageSize) {
                     List<Integer> pages = new ArrayList<Integer>();

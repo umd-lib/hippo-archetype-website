@@ -4,7 +4,6 @@
 <%--@elvariable id="pages" type="java.util.Collection<java.lang.Integer>"--%>
 <%--@elvariable id="query" type="java.lang.String"--%>
 <%--@elvariable id="result" type="org.hippoecm.hst.content.beans.query.HstQueryResult"--%>
-<%--@elvariable id="totalSize" type="java.lang.Integer"--%>
 
 <c:choose>
   <c:when test="${empty info}">
@@ -20,7 +19,7 @@
     
     <h2>
       ${info.title}
-      <c:if test="${not empty totalSize}"> Total results ${totalSize}</c:if>
+      <c:if test="${not empty result.totalSize}"> Total results ${result.totalSize}</c:if>
     </h2>
     <ul>
       <c:forEach var="item" items="${result.hippoBeans}">
