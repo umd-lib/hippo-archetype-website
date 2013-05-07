@@ -4958,3 +4958,8 @@ a.badge:hover {
 .invisible {
     visibility: hidden;
 }
+
+/* correct position of the hst:cmseditlink */
+article {
+    position: relative;
+}

@@ -18,7 +18,7 @@ public class ListView extends BaseComponent {
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
 
-       ListViewInfo info = getParametersInfo(request);
+       ListViewInfo info = getComponentParametersInfo(request);
        HippoBean scopeBean = null;
 
        String scope = info.getScope();

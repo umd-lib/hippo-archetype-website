@@ -18,11 +18,6 @@
   <sv:property sv:name="hippotranslation:locale" sv:type="String">
     <sv:value>en</sv:value>
   </sv:property>
-  <sv:node sv:name="hippotranslation:translations">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hippotranslation:translations</sv:value>
-    </sv:property>
-  </sv:node>
   <sv:node sv:name="hippo:translation">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:translation</sv:value>
@@ -52,11 +47,6 @@
     <sv:property sv:name="hippotranslation:locale" sv:type="String">
       <sv:value>en</sv:value>
     </sv:property>
-    <sv:node sv:name="hippotranslation:translations">
-      <sv:property sv:name="jcr:primaryType" sv:type="Name">
-        <sv:value>hippotranslation:translations</sv:value>
-      </sv:property>
-    </sv:node>
     <sv:node sv:name="toyota-suggests-putting-a-glass-of-water-on-your-dash">
       <sv:property sv:name="jcr:primaryType" sv:type="Name">
         <sv:value>hippo:handle</sv:value>
@@ -127,11 +117,6 @@
         <sv:property sv:name="myhippoproject:title" sv:type="String">
           <sv:value>Toyota suggests putting a glass of water on your dash (well, not really)</sv:value>
         </sv:property>
-        <sv:node sv:name="hippotranslation:translations">
-          <sv:property sv:name="jcr:primaryType" sv:type="Name">
-            <sv:value>hippotranslation:translations</sv:value>
-          </sv:property>
-        </sv:node>
         <sv:node sv:name="myhippoproject:body">
           <sv:property sv:name="jcr:primaryType" sv:type="Name">
             <sv:value>hippostd:html</sv:value>
@@ -229,11 +214,6 @@ smooth operator.&lt;/p&gt;
         <sv:property sv:name="myhippoproject:title" sv:type="String">
           <sv:value>Solar power: the sky is the limit</sv:value>
         </sv:property>
-        <sv:node sv:name="hippotranslation:translations">
-          <sv:property sv:name="jcr:primaryType" sv:type="Name">
-            <sv:value>hippotranslation:translations</sv:value>
-          </sv:property>
-        </sv:node>
         <sv:node sv:name="myhippoproject:body">
           <sv:property sv:name="jcr:primaryType" sv:type="Name">
             <sv:value>hippostd:html</sv:value>
@@ -360,11 +340,6 @@ long ago, Feldzer explained; having a person on board “changes everything”.&
         <sv:property sv:name="myhippoproject:title" sv:type="String">
           <sv:value>PBS show asserts greenhouse gases, atmospheric pollutants dimming future</sv:value>
         </sv:property>
-        <sv:node sv:name="hippotranslation:translations">
-          <sv:property sv:name="jcr:primaryType" sv:type="Name">
-            <sv:value>hippotranslation:translations</sv:value>
-          </sv:property>
-        </sv:node>
         <sv:node sv:name="myhippoproject:body">
           <sv:property sv:name="jcr:primaryType" sv:type="Name">
             <sv:value>hippostd:html</sv:value>

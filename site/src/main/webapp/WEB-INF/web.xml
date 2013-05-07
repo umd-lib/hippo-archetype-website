@@ -167,6 +167,14 @@
       <param-value>text/html; charset=UTF-8</param-value>
       <!-- Forces UTF-8 output encoding! -->
     </init-param>
+    <!--
+      if in case of template exception rendering should short-circuit, set continue-rendering-after-exception = false.
+      default value is true
+      <init-param>
+        <param-name>continue-rendering-after-exception</param-name>
+        <param-value>true</param-value>
+      </init-param>
+    -->
     <load-on-startup>200</load-on-startup>
   </servlet>
 

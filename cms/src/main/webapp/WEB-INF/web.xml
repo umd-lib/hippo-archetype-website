@@ -17,7 +17,7 @@
   <context-param>
     <description>The (relative) location where to store files</description>
     <param-name>repository-directory</param-name>
-    <param-value>storage</param-value>
+    <param-value>WEB-INF/storage</param-value>
   </context-param>
   <context-param>
     <description>The location of the repository configuration file. Unless the location
@@ -205,5 +205,15 @@
   <session-config>
     <session-timeout>10</session-timeout>
   </session-config>
+
+  <error-page>
+    <error-code>500</error-code>
+    <location>/WEB-INF/error.jsp</location>
+  </error-page>
+
+  <error-page>
+    <exception-type>java.lang.Throwable</exception-type>
+    <location>/WEB-INF/error.jsp</location>
+  </error-page>
 
 </web-app>

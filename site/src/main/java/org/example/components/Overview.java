@@ -17,7 +17,7 @@ public class Overview extends BaseComponent {
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
 
-       PageableListInfo info = getParametersInfo(request);
+       PageableListInfo info = getComponentParametersInfo(request);
        HippoBean scope = getContentBean(request);
 
        if(scope == null) {

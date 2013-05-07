@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>7.8.0</version>
+    <version>7.8.1</version>
   </parent>
 
   <name>My Hippo Project</name>
@@ -60,9 +60,6 @@
 
   <properties>
 
-    <!-- Once the hippo-cms7-release 7.7.1 has been released and you have bumped 
-    the parent version to 7.7.1 then the property definitions below can be removed -->
-    
     <!--***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
@@ -73,8 +70,9 @@
     <easymock.version>3.1</easymock.version>
     <freemarker.version>2.3.18</freemarker.version>
      
-     <filesync.override>false</filesync.override>
-     <maven.plugins.filesync.version>1.0.0</maven.plugins.filesync.version>    
+    <filesync.override>false</filesync.override>
+    <maven.plugins.filesync.version>1.0.0</maven.plugins.filesync.version>
+
   </properties>
 
   <repositories>

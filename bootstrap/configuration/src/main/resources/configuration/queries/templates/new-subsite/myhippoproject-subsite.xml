@@ -77,11 +77,6 @@
       <sv:property sv:name="myhippoproject:title" sv:type="String">
         <sv:value>Example subsite</sv:value>
       </sv:property>
-      <sv:node sv:name="hippotranslation:translations">
-        <sv:property sv:name="jcr:primaryType" sv:type="Name">
-          <sv:value>hippotranslation:translations</sv:value>
-        </sv:property>
-      </sv:node>
       <sv:node sv:name="myhippoproject:body">
         <sv:property sv:name="jcr:primaryType" sv:type="Name">
           <sv:value>hippostd:html</sv:value>
