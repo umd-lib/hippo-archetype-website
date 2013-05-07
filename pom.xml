@@ -69,7 +69,7 @@
     <hippo.addon-channel-manager.version>2.22.01</hippo.addon-channel-manager.version> 
     <hippo.addon-brokenlinks.version>2.22.00</hippo.addon-brokenlinks.version>
     <hippo.packages.version>2.22.01</hippo.packages.version>
-    <hippo.hst.version>2.24.01</hippo.hst.version>
+    <hippo.hst.version>2.24.02</hippo.hst.version>
     <forge.sitemap.version>1.02.01</forge.sitemap.version>
     <!-- ***END temporary override of versions*** -->
 
