@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>7.7.5</version>
+    <version>7.8.0</version>
   </parent>
 
   <name>My Hippo Project</name>
@@ -48,24 +48,33 @@
   <ciManagement/>
   <distributionManagement>
     <repository>
-      <id/>
-      <url/>
+      <id>-</id>
+      <url>-</url>
     </repository>
     <snapshotRepository>
-      <id/>
-      <url/>
+      <id>-</id>
+      <url>-</url>
     </snapshotRepository>
   </distributionManagement>
   <!-- End of emptied/overridden metadata from parent hippo-cms7-release pom. -->
 
   <properties>
+
+    <!-- Once the hippo-cms7-release 7.7.1 has been released and you have bumped 
+    the parent version to 7.7.1 then the property definitions below can be removed -->
+    
+    <!--***START temporary override of versions*** -->
+    <!-- ***END temporary override of versions*** -->
+
     <jstl.version>1.1.2</jstl.version>
     <taglibs.version>1.1.2</taglibs.version>
     <commons.lang.version>2.6</commons.lang.version>
     <junit.version>4.10</junit.version>
+    <easymock.version>3.1</easymock.version>
     <freemarker.version>2.3.18</freemarker.version>
-    <filesync.override>false</filesync.override>
-    <maven.plugins.filesync.version>1.0.0</maven.plugins.filesync.version>
+     
+     <filesync.override>false</filesync.override>
+     <maven.plugins.filesync.version>1.0.0</maven.plugins.filesync.version>    
   </properties>
 
   <repositories>
@@ -111,6 +120,13 @@
         <groupId>junit</groupId>
         <artifactId>junit</artifactId>
         <version>${junit.version}</version>
+        <scope>test</scope>
+      </dependency>
+
+      <dependency>
+        <groupId>org.easymock</groupId>
+        <artifactId>easymock</artifactId>
+        <version>${easymock.version}</version>
         <scope>test</scope>
       </dependency>
 
@@ -186,7 +202,7 @@
         </property>
       </activation>
       <modules>
-        <module>content</module>
+        <module>bootstrap</module>
         <module>cms</module>
         <module>site</module>
       </modules>
@@ -217,6 +233,10 @@
                     </properties>
                   </deployable>
                 </deployables>
+                <properties>
+                  <catalina.servlet.uriencoding>UTF-8</catalina.servlet.uriencoding>
+                  <cargo.tomcat.connector.emptySessionPath>false</cargo.tomcat.connector.emptySessionPath>
+                </properties>
                 <configfiles>
                   <configfile>
                     <file>${project.basedir}/conf/context.xml</file>
@@ -230,6 +250,7 @@
                   <derby.stream.error.file>${project.basedir}/target/derby.log</derby.stream.error.file>
                   <log4j.configuration>file:${project.basedir}/conf/log4j-dev.xml</log4j.configuration>
                   <rebel.log4j-plugin>true</rebel.log4j-plugin>
+                  <!-- enables auto export: -->
                   <project.basedir>${project.basedir}</project.basedir>
                 </systemProperties>
               </container>

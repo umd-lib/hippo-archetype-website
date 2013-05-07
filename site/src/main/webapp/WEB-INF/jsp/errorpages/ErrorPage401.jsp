@@ -1,4 +1,4 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!doctype html>
 <%@ include file="/WEB-INF/jspf/htmlTags.jspf" %>
 
 <fmt:setBundle basename="org.hippoecm.hst.security.servlet.LoginServlet" />
@@ -18,12 +18,11 @@ int autoRedirectSeconds = 2;
   <hst:param name="destination" value="<%=destination%>" />
 </hst:link>
 
-<html>
+<html lang="en">
   <head>
-    <title>
-       <fmt:message key="label.authen.required" />
-    </title>
-    <meta http-equiv='refresh' content='<%=autoRedirectSeconds%>;url=${loginFormUrl}' />
+    <meta charset="utf-8"/>
+    <title><fmt:message key="label.authen.required" /></title>
+    <meta http-equiv="refresh" content='<%=autoRedirectSeconds%>;url=${loginFormUrl}' />
     <link rel="stylesheet" type="text/css" href="<hst:link path='/login/hst/security/skin/screen.css'/>" />
   </head>
   <body class="hippo-root">

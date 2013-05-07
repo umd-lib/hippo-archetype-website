@@ -1,14 +1,13 @@
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!doctype html>
 <%@ include file="/WEB-INF/jspf/htmlTags.jspf" %>
 
 <% response.setStatus(403); %>
 
 <fmt:setBundle basename="org.hippoecm.hst.security.servlet.LoginServlet" />
-<html>
+<html lang="en">
   <head>
-    <title>
-         <fmt:message key="label.access.forbidden" />
-    </title>
+    <meta charset="utf-8"/>
+    <title><fmt:message key="label.access.forbidden" /></title>
     <link rel="stylesheet" type="text/css" href="<hst:link path='/login/hst/security/skin/screen.css' />" />
   </head>
   <body class="hippo-root">

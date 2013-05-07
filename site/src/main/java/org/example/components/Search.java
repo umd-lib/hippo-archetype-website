@@ -21,10 +21,7 @@ public class Search extends BaseComponent {
        HippoBean scope = getSiteContentBaseBean(request);
 
        String query = getPublicRequestParameter(request, "query");
-       if(query == null) {
-           // test namespaced query parameter
-           query = request.getParameter("query");
-       }
+
        createAndExecuteSearch(request, info, scope, query);
     }
 

@@ -1,15 +1,15 @@
 <%@ include file="/WEB-INF/jspf/htmlTags.jspf" %>
-
-<div id="main">
-    <div id="leftmenu">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <nav class="span2">
       <hst:include ref="leftmenu"/>
-    </div>
-    <div id="content">
+    </nav>
+    <div class="span8">
       <hst:include ref="content"/>
-      <!-- the lists is a general 'slot' where items can be dropped in -->
       <hst:include ref="lists"/>
     </div>
-    <div id="right">
+    <aside class="span2">
       <hst:include ref="right"/>
-    </div>
+    </aside>
+  </div>
 </div>

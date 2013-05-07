@@ -1,13 +1,14 @@
 <%@ include file="/WEB-INF/jspf/htmlTags.jspf" %>
-
-<div id="main">
-    <div id="leftmenu">
+<div class="container-fluid">
+  <div class="row-fluid">
+    <nav class="span2">
       <hst:include ref="leftmenu"/>
-    </div>
-    <div id="content">
+    </nav>
+    <div class="span8">
       <hst:include ref="content"/>
     </div>
-    <div id="right">
+    <aside class="span2">
       <hst:include ref="right"/>
-    </div>
+    </aside>
+  </div>
 </div>

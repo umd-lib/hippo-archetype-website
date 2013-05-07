@@ -14,27 +14,22 @@
   <packaging>war</packaging>
 
   <dependencies>
+    <dependency>
+      <groupId>org.onehippo.cms7.hst.dependencies</groupId>
+      <artifactId>hst-repository-dependencies</artifactId>
+      <type>pom</type>
+    </dependency>
+ 
+    <dependency>
+      <groupId>org.onehippo.cms7.hst.dependencies</groupId>
+      <artifactId>hst-cms-dependencies</artifactId>
+      <type>pom</type>
+    </dependency>
 
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
       <artifactId>hippo-package-cms-dependencies</artifactId>
       <type>pom</type>
-    </dependency>
-    
-    <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-package-cms-resources</artifactId>
-      <type>war</type>
-    </dependency>
-
-    <dependency>
-      <groupId>org.onehippo.cms7.hst.toolkit-resources.addon.toolkit-cnd</groupId>
-      <artifactId>hst-addon-cnd</artifactId>
-    </dependency>
-
-    <dependency>
-      <groupId>org.onehippo.cms7.hst.toolkit-resources.addon</groupId>
-      <artifactId>hst-addon-repository</artifactId>
     </dependency>
 
     <dependency>
@@ -48,20 +43,17 @@
     </dependency>
 
     <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-addon-automatic-export-repository</artifactId>
-    </dependency>
-    <dependency>
-      <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-addon-automatic-export-frontend</artifactId>
+      <groupId>org.example</groupId>
+      <artifactId>myhippoproject-bootstrap-configuration</artifactId>
+      <version>${project.version}</version>
     </dependency>
 
     <dependency>
       <groupId>org.example</groupId>
-      <artifactId>myhippoproject-content</artifactId>
+      <artifactId>myhippoproject-bootstrap-content</artifactId>
       <version>${project.version}</version>
     </dependency>
-    
+
     <!--  Gallery picker dependency -->
     <dependency>
       <groupId>org.onehippo.addon.frontend.gallerypicker</groupId>
@@ -90,12 +82,6 @@
               <Project-Build>${buildNumber}</Project-Build>
             </manifestEntries>
           </archive>
-          <overlays>
-            <overlay>
-              <groupId>org.onehippo.cms7</groupId>
-              <artifactId>hippo-package-cms-resources</artifactId>
-            </overlay>
-          </overlays>
         </configuration>
       </plugin>
       <plugin>

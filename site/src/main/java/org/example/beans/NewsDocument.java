@@ -9,6 +9,14 @@ import org.hippoecm.hst.content.beans.standard.HippoGalleryImageSetBean;
 @Node(jcrType="myhippoproject:newsdocument")
 public class NewsDocument extends BaseDocument{
 
+    public String getTitle() {
+        return getProperty("myhippoproject:title");
+    }
+    
+    public String getSummary() {
+        return getProperty("myhippoproject:summary");
+    }
+    
     public Calendar getDate() {
         return getProperty("myhippoproject:date");
     }
@@ -26,12 +34,5 @@ public class NewsDocument extends BaseDocument{
         return getLinkedBean("myhippoproject:image", HippoGalleryImageSetBean.class);
     }
 
-    public String getSummary() {
-        return getProperty("myhippoproject:summary");
-    }
-
-    public String getTitle() {
-        return getProperty("myhippoproject:title");
-    }
 
 }

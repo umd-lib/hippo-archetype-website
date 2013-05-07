@@ -1,6 +1,7 @@
 package org.example.components;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 import org.example.componentsinfo.GeneralListInfo;
@@ -50,7 +51,7 @@ public abstract class BaseComponent extends BaseHstComponent {
             try {
                 crPage = Integer.parseInt(crPageStr);
             } catch (NumberFormatException e) {
-                throw new HstComponentException("Invalid page number '"+crPage+"'");
+                throw new HstComponentException("Invalid page number '" + crPage + '\'');
             }
         }
 
@@ -65,8 +66,8 @@ public abstract class BaseComponent extends BaseHstComponent {
             HstQuery hstQuery = getQueryManager(request).createQuery(scope, filterClass, true);
             hstQuery.setLimit(pageSize);
             hstQuery.setOffset(pageSize * (crPage - 1));
-            if(sortBy != null && !"".equals(sortBy)) {
-                if(sortOrder == null || "".equals(sortOrder) || "descending".equals(sortOrder)) {
+            if(sortBy != null && !sortBy.isEmpty()) {
+                if(sortOrder == null || sortOrder.isEmpty() || "descending".equals(sortOrder)) {
                     hstQuery.addOrderByDescending(sortBy);
                 } else {
                     hstQuery.addOrderByAscending(sortBy);
@@ -87,14 +88,14 @@ public abstract class BaseComponent extends BaseHstComponent {
 
             request.setAttribute("result", result);
             request.setAttribute("info", info);
-            request.setAttribute("crPage", crPage);
+            request.setAttribute("page", crPage);
             request.setAttribute("query", parsedQuery);
 
 
             if(info instanceof PageableListInfo && ((PageableListInfo)info).isPagesVisible()) {
                 // add pages
                 if(result.getTotalSize() > pageSize) {
-                    List<Integer> pages = new ArrayList<Integer>();
+                    Collection<Integer> pages = new ArrayList<Integer>();
                     int numberOfPages = result.getTotalSize() / pageSize ;
                     if(result.getTotalSize() % pageSize != 0) {
                         numberOfPages++;
@@ -107,8 +108,7 @@ public abstract class BaseComponent extends BaseHstComponent {
             }
 
         } catch (QueryException e) {
-            throw new HstComponentException("Exception occured during creation or execution of HstQuery. ", e);
+            throw new HstComponentException("Exception occurred during creation or execution of HstQuery. ", e);
         }
     }
-
 }

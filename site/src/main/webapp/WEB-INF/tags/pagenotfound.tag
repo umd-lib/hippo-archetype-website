@@ -1,6 +1,4 @@
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
-<%@ taglib prefix="hst" uri="http://www.hippoecm.org/jsp/hst/core" %>
+<%@ include file="/WEB-INF/jspf/taglibs.jspf" %>
 <hst:element var="headTitle" name="title">
    <fmt:message key="page.not.found"/>
  </hst:element>

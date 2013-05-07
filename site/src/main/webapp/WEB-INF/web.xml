@@ -36,7 +36,6 @@
     <param-name>javax.servlet.jsp.jstl.fmt.localizationContext</param-name>
     <param-value>messages</param-value>
   </context-param>
-
   <!--
     HST-2 Content Beans Annotation Configuration. You can configure it
     with either xml or classes location filter. For example, if the
@@ -80,6 +79,16 @@
   <filter>
     <filter-name>HstFilter</filter-name>
     <filter-class>org.hippoecm.hst.container.HstFilter</filter-class>
+    <init-param>
+      <param-name>prefixExclusions</param-name>
+      <!-- on purpose /resources/ is not added here a prefix exclusion as resources should be catched
+      in general by suffixExclusions -->
+      <param-value>/ping/, /binaries/, /login/, /hst/pagecomposer/sources/</param-value>
+    </init-param>
+    <init-param>
+      <param-name>suffixExclusions</param-name>
+      <param-value>.jsp, .ftl, .FTL</param-value>
+    </init-param>
     <!--
       HST Application Context Namespace Prefix. This should be unique
       among multiple HST-based application contexts.
@@ -118,6 +127,11 @@
     <filter-name>HstFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+
+  <!-- Listener that dispatches http session events to ComponentManager. -->
+  <listener>
+    <listener-class>org.hippoecm.hst.site.container.session.HttpSessionEventPublisher</listener-class>
+  </listener>
 
   <servlet>
     <servlet-name>HstSiteConfigServlet</servlet-name>
@@ -158,7 +172,7 @@
 
   <servlet>
     <servlet-name>TemplateComposerResourceServlet</servlet-name>
-    <servlet-class>org.hippoecm.hst.servlet.ResourceServlet</servlet-class>
+    <servlet-class>org.onehippo.cms7.utilities.servlet.ResourceServlet</servlet-class>
     <init-param>
       <param-name>jarPathPrefix</param-name>
       <param-value>/META-INF/hst/pagecomposer</param-value>
@@ -172,7 +186,7 @@
 
   <servlet>
     <servlet-name>SecurityResourceServlet</servlet-name>
-    <servlet-class>org.hippoecm.hst.servlet.ResourceServlet</servlet-class>
+    <servlet-class>org.onehippo.cms7.utilities.servlet.ResourceServlet</servlet-class>
     <init-param>
       <param-name>jarPathPrefix</param-name>
       <param-value>/META-INF/hst/security</param-value>
@@ -181,7 +195,7 @@
 
   <servlet>
     <servlet-name>HstResourceServlet</servlet-name>
-    <servlet-class>org.hippoecm.hst.servlet.ResourceServlet</servlet-class>
+    <servlet-class>org.onehippo.cms7.utilities.servlet.ResourceServlet</servlet-class>
     <init-param>
       <param-name>jarPathPrefix</param-name>
       <param-value>/META-INF/web-resources</param-value>

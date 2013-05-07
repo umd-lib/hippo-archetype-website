@@ -82,6 +82,14 @@
     <appender-ref ref="site"/>
     <appender-ref ref="console"/>
   </logger>
+
+  <!-- DiagnosticReportingValve only logs when diagnostics enabled in hst:hosts config in repo hence
+       can be here on level 'info' -->
+  <logger additivity="false" name="org.hippoecm.hst.core.container.DiagnosticReportingValve">
+    <level value="info"/>
+    <appender-ref ref="site"/>
+    <appender-ref ref="console"/>
+  </logger>
   
   <logger additivity="false" name="freemarker">
     <level value="warn"/>

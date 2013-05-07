@@ -7,17 +7,24 @@
     <tag:pagenotfound/>
   </c:when>
   <c:otherwise>
+
     <c:if test="${not empty document.title}">
       <hst:element var="headTitle" name="title">
         <c:out value="${document.title}"/>
       </hst:element>
       <hst:headContribution keyHint="headTitle" element="${headTitle}"/>
     </c:if>
-    
-    <hst:cmseditlink hippobean="${document}"/>
-    <h2>${document.title}</h2>
+
+    <article class="well well-large">
+      <hst:cmseditlink hippobean="${document}"/>
+      <header>
+        <h2>${fn:escapeXml(document.title)}</h2>
+        <p>${fn:escapeXml(document.summary)}</p>
+      </header>
+      <hst:html hippohtml="${document.html}"/>
+    </article>
+
     <p>I18n key example: <fmt:message key="home.title"/></p>
-    <p>${document.summary}</p>
-    <hst:html hippohtml="${document.html}"/>
+
   </c:otherwise>
 </c:choose>
