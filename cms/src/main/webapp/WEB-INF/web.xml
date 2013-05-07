@@ -1,28 +1,37 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE web-app PUBLIC "-//Sun Microsystems, Inc.//DTD Web Application 2.3//EN" "http://java.sun.com/dtd/web-app_2_3.dtd">
-<web-app id="hippo-ecm">
+<web-app xmlns="http://java.sun.com/xml/ns/javaee"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
+    version="2.5" 
+    id="cms">
 
   <!-- General configuration -->
-  <display-name>Hippo ECM WAR package</display-name>
-  <description>Hippo ECM WAR package</description>
+  <display-name>My Hippo Project CMS</display-name>
+  <description>My Hippo Project CMS</description>
 
   <context-param>
+    <description>The address of the repository</description>
     <param-name>repository-address</param-name>
     <param-value>rmi://localhost:1099/hipporepository</param-value>
-    <description>The address of the repository</description>
   </context-param>
   <context-param>
+    <description>The (relative) location where to store files</description>
     <param-name>repository-directory</param-name>
     <param-value>storage</param-value>
-    <description>The (relative) location where to store files</description>
   </context-param>
   <context-param>
-    <param-name>repository-config</param-name>
-    <param-value>repository.xml</param-value>
     <description>The location of the repository configuration file. Unless the location
     starts with file://, the location is retrieved from within the application package as
     resource.</description>
+    <param-name>repository-config</param-name>
+    <param-value>repository.xml</param-value>
   </context-param>
+
+  <!--No concurrent logins-->
+  <filter>
+    <filter-name>ConcurrentLogin</filter-name>
+    <filter-class>org.hippoecm.frontend.plugins.login.ConcurrentLoginFilter</filter-class>
+  </filter>
 
   <!--Remap resources as anti-cache-->
   <filter>
@@ -35,10 +44,6 @@
   </filter>
 
   <!--Default application-->
-  <filter>
-    <filter-name>ConcurrentLogin</filter-name>
-    <filter-class>org.hippoecm.frontend.plugins.login.ConcurrentLoginFilter</filter-class>
-  </filter>
   <filter>
     <filter-name>CMS</filter-name>
     <filter-class>org.apache.wicket.protocol.http.WicketFilter</filter-class>
@@ -57,6 +62,10 @@
     <init-param>
       <param-name>repository-address</param-name>
       <param-value>vm://</param-value>
+    </init-param>
+    <init-param>
+      <param-name>upload-limit</param-name>
+      <param-value>4096k</param-value>
     </init-param>
   </filter>
 
@@ -128,11 +137,11 @@
   <servlet> 
     <servlet-name>PingServlet</servlet-name> 
     <servlet-class>org.hippoecm.repository.PingServlet</servlet-class> 
-    <load-on-startup>2</load-on-startup> 
     <init-param>
       <param-name>repository-address</param-name>
       <param-value>vm://</param-value>
     </init-param>
+    <load-on-startup>5</load-on-startup> 
   </servlet> 
 
   <servlet-mapping>

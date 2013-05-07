@@ -61,7 +61,15 @@ Automatic Export
 To have your repository changes automatically exported to filesystem during local development, add to the 
 startup cmd: 
 
--Dhippoecm.export.dir = content/src/main/resources 
+  $ mvn -P cargo.run -Dhippoecm.export.dir=content/src/main/resources
 
 The automatic export can then be switch off/on through the /cms/console. By default it is switched on.
+
+Monitoring with JMX Console
+===========================
+You may run the following command:
+
+  $ jconsole 
+ 
+Now open the local process org.apache.catalina.startyp.Bootstrap start
   

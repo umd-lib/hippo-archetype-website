@@ -14,6 +14,7 @@
   <packaging>war</packaging>
 
   <dependencies>
+
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
       <artifactId>hippo-package-cms-dependencies</artifactId>
@@ -45,11 +46,21 @@
       <groupId>org.onehippo.cms7</groupId>
       <artifactId>hippo-addon-hst-configuration-editor-repository</artifactId>
     </dependency>
+    
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-addon-channel-manager-frontend</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-addon-channel-manager-repository</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>org.example</groupId>
       <artifactId>myhippoproject-content</artifactId>
-      <version>1.01.00-SNAPSHOT</version>
+      <version>${project.version}</version>
     </dependency>
     
     <!--  Gallery picker dependency -->

@@ -1,7 +1,4 @@
-<%@ page language="java" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/xml" prefix="x" %>
-<%@ taglib uri="http://www.hippoecm.org/jsp/hst/core" prefix='hst'%>
+<%@ include file="/WEB-INF/jspf/htmlTags.jspf" %>
 
 <div id="main">
     <div id="leftmenu">

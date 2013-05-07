@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>7.6.5</version>
+    <version>7.7.0</version>
   </parent>
 
   <name>My Hippo Project</name>
@@ -38,11 +38,13 @@
     <contributor/>
   </contributors>
   <issueManagement/>
+  <!--
   <scm>
     <connection/>
     <developerConnection/>
     <url/>
   </scm>
+  -->
   <ciManagement/>
   <distributionManagement>
     <repository>
@@ -57,24 +59,29 @@
   <!-- End of emptied/overridden metadata from parent hippo-cms7-release pom. -->
 
   <properties>
+
     <jstl.version>1.1.2</jstl.version>
     <taglibs.version>1.1.2</taglibs.version>
 
     <commons.lang.version>2.6</commons.lang.version>
+
+    <junit.version>4.10</junit.version>
+
     <freemarker.version>2.3.18</freemarker.version>
-    <junit.version>4.8.2</junit.version>
-    <lib.spring-js.version>2.0.5.RELEASE</lib.spring-js.version>
+    
     <!-- uncomment to enable automatic export 
     <hippoecm.export.dir>${project.basedir}/content/src/main/resources</hippoecm.export.dir>
      -->
      
-    <filesync.override>false</filesync.override>
-    <maven.plugins.filesync.version>1.0.0</maven.plugins.filesync.version>
+     <filesync.override>false</filesync.override>
+
+     <maven.plugins.filesync.version>1.0.0</maven.plugins.filesync.version>     
+
   </properties>
 
   <repositories>
     <repository>
-      <id>hippo-maven2</id>
+      <id>hippo</id>
       <name>Hippo maven 2 repository.</name>
       <url>http://maven.onehippo.com/maven2/</url>
     </repository>
@@ -82,7 +89,7 @@
 
   <dependencyManagement>
     <dependencies>
-    
+      
       <!-- other predefined runtime scope versioned dependencies -->
       <dependency>
         <groupId>javax.servlet</groupId>
@@ -98,7 +105,7 @@
         <scope>runtime</scope>
       </dependency>
 
-     <!-- other predefined compile scope versioned dependencies -->
+      <!-- other predefined compile scope versioned dependencies -->
       <dependency>
         <groupId>commons-lang</groupId>
         <artifactId>commons-lang</artifactId>
@@ -109,12 +116,6 @@
         <groupId>org.freemarker</groupId>
         <artifactId>freemarker</artifactId>
         <version>${freemarker.version}</version>
-      </dependency>
-
-      <dependency>
-        <groupId>org.springframework.webflow</groupId>
-        <artifactId>org.springframework.js</artifactId>
-        <version>${lib.spring-js.version}</version>
       </dependency>
       
       <dependency>
@@ -148,6 +149,41 @@
         </plugin>
       </plugins>
     </pluginManagement>
+    <plugins>
+      <plugin>
+        <groupId>org.codehaus.mojo</groupId>
+        <artifactId>buildnumber-maven-plugin</artifactId>
+        <version>${maven.plugin.buildnumber.version}</version>
+        <executions>
+          <execution>
+            <phase>validate</phase>
+            <goals>
+              <goal>create</goal>
+            </goals>
+          </execution>
+        </executions>
+        <configuration>
+          <doCheck>false</doCheck>
+          <doUpdate>false</doUpdate>
+          <revisionOnScmFailure>-1</revisionOnScmFailure>
+        </configuration>
+      </plugin>
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-jar-plugin</artifactId>
+        <version>${maven.plugin.jar.version}</version>
+        <configuration>
+          <archive>
+            <manifest>
+              <addDefaultImplementationEntries>true</addDefaultImplementationEntries>
+            </manifest>
+            <manifestEntries>
+              <Implementation-Build>${buildNumber}</Implementation-Build>
+            </manifestEntries>
+          </archive>
+        </configuration>
+      </plugin>
+    </plugins>
   </build>
 
   <profiles>
@@ -169,7 +205,7 @@
 
     <profile>
       <id>cargo.run</id>
-     <build>
+      <build>
         <plugins>
           <plugin>
             <groupId>org.codehaus.cargo</groupId>
@@ -202,10 +238,12 @@
               </configuration>
               <container>
                 <systemProperties>
+                  <derby.stream.error.file>${project.basedir}/target/derby/derby.log</derby.stream.error.file>
+                  <derby.system.home>${project.basedir}/target/derby</derby.system.home>
                   <log4j.configuration>file:${project.basedir}/conf/log4j-dev.xml</log4j.configuration>
                   <rebel.log4j-plugin>true</rebel.log4j-plugin>
                 </systemProperties>
-             </container>
+              </container>
             </configuration>
           </plugin>
         </plugins>
@@ -213,25 +251,25 @@
     </profile>
 
     <profile>
-     <id>dist</id>
-     <dependencies>
-       <dependency>
-         <groupId>org.slf4j</groupId>
-         <artifactId>slf4j-log4j12</artifactId>
-         <scope>provided</scope>
-       </dependency>
-       <dependency>
-         <groupId>org.slf4j</groupId>
-         <artifactId>jcl-over-slf4j</artifactId>
-         <scope>provided</scope>
-       </dependency>
-       <dependency>
-         <groupId>log4j</groupId>
-         <artifactId>log4j</artifactId>
-         <scope>provided</scope>
-       </dependency>
-     </dependencies>
-     <build>
+      <id>dist</id>
+      <dependencies>
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>slf4j-log4j12</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>org.slf4j</groupId>
+          <artifactId>jcl-over-slf4j</artifactId>
+          <scope>provided</scope>
+        </dependency>
+        <dependency>
+          <groupId>log4j</groupId>
+          <artifactId>log4j</artifactId>
+          <scope>provided</scope>
+        </dependency>
+      </dependencies>
+      <build>
         <defaultGoal>validate</defaultGoal>
         <plugins>
           <plugin>

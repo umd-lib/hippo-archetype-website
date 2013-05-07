@@ -1,8 +1,7 @@
-
 package org.example.components;
 
-import org.example.componentsinfo.ListInfo;
-import org.hippoecm.hst.configuration.components.ParametersInfo;
+import org.example.componentsinfo.ListViewInfo;
+import org.hippoecm.hst.core.parameters.ParametersInfo;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
 import org.hippoecm.hst.core.component.HstRequest;
@@ -11,16 +10,15 @@ import org.hippoecm.hst.util.PathUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+@ParametersInfo(type = ListViewInfo.class)
+public class ListView extends BaseComponent {
 
-@ParametersInfo(type = ListInfo.class)
-public class List extends BaseComponent {
-
-    public static final Logger log = LoggerFactory.getLogger(List.class);
+    public static final Logger log = LoggerFactory.getLogger(ListView.class);
 
     @Override
-    public void doBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
+    public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
 
-       ListInfo info = getParametersInfo(request);
+       ListViewInfo info = getParametersInfo(request);
        HippoBean scopeBean = null;
 
        String scope = info.getScope();
@@ -36,13 +34,18 @@ public class List extends BaseComponent {
            scope = PathUtils.normalizePath(scope);
            scopeBean = scopeBean.getBean(scope);
            if(scopeBean == null) {
-               throw new HstComponentException("Scope '"+scope+"' does not point to a bean for Mount with content path '"+request.getRequestContext().getResolvedMount().getMount().getContentPath()+"'. Cannot create a list");
+               throw new HstComponentException("Scope '" + scope
+                       + "' does not point to a bean for Mount with content path '"
+                       + request.getRequestContext().getResolvedMount().getMount().getContentPath()
+                       + "'. Cannot create a list");
            }
        }
 
        if(scope == null) {
+           response.setStatus(404);
            throw new HstComponentException("For an Overview component there must be a content bean available to search below. Cannot create an overview");
        }
        createAndExecuteSearch(request, info, scopeBean, null);
     }
+
 }

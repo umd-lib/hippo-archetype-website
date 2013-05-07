@@ -1,4 +1,3 @@
-
 package org.example.beans;
 
 import org.hippoecm.hst.content.beans.Node;
