@@ -58,10 +58,14 @@ To hot deploy, redeploy or undeploy the CMS or site:
 Automatic Export
 ==========
 
-To have your repository changes automatically exported to filesystem during local development, add to the 
-startup cmd: 
+Changes to your repository are automatically exported to filesystem during local development, to disable this feature, 
+log into the console and press "disable auto export".
 
--Dhippoecm.export.dir = content/src/main/resources 
+Monitoring with JMX Console
+===========================
+You may run the following command:
 
-The automatic export can then be switch off/on through the /cms/console. By default it is switched on.
+  $ jconsole 
+ 
+Now open the local process org.apache.catalina.startyp.Bootstrap start
   

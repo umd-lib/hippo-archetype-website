@@ -14,6 +14,7 @@
   <packaging>war</packaging>
 
   <dependencies>
+
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
       <artifactId>hippo-package-cms-dependencies</artifactId>
@@ -38,18 +39,27 @@
 
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-addon-hst-configuration-editor-frontend</artifactId>
+      <artifactId>hippo-addon-channel-manager-frontend</artifactId>
     </dependency>
 
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-addon-hst-configuration-editor-repository</artifactId>
+      <artifactId>hippo-addon-channel-manager-repository</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-addon-automatic-export-repository</artifactId>
+    </dependency>
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-addon-automatic-export-frontend</artifactId>
     </dependency>
 
     <dependency>
       <groupId>edu.umd.lib.hippo</groupId>
       <artifactId>public-content</artifactId>
-      <version>1.01.00-SNAPSHOT</version>
+      <version>${project.version}</version>
     </dependency>
     
     <!--  Gallery picker dependency -->
@@ -73,6 +83,13 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
+          <archive>
+            <manifestEntries>
+              <Hippo-Release-Version>${hippo.release.version}</Hippo-Release-Version>
+              <Project-Version>${project.version}</Project-Version>
+              <Project-Build>${buildNumber}</Project-Build>
+            </manifestEntries>
+          </archive>
           <overlays>
             <overlay>
               <groupId>org.onehippo.cms7</groupId>

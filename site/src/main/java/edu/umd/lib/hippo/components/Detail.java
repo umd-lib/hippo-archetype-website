@@ -1,4 +1,3 @@
-
 package edu.umd.lib.hippo.components;
 
 import org.hippoecm.hst.component.support.bean.BaseHstComponent;
@@ -14,15 +13,19 @@ public class Detail extends BaseHstComponent {
     public static final Logger log = LoggerFactory.getLogger(Detail.class);
 
     @Override
-    public void doBeforeRender(HstRequest request, HstResponse response) throws HstComponentException {
+    public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
 
-        HippoBean  n = getContentBean(request);
-        
-        if(n == null) {
+        HippoBean doc = getContentBean(request);
+
+        if (doc == null) {
+            log.warn("Did not find a content bean for relative content path '{}' for pathInfo '{}'", 
+                         request.getRequestContext().getResolvedSiteMapItem().getRelativeContentPath(),
+                         request.getRequestContext().getResolvedSiteMapItem().getPathInfo());
+            response.setStatus(404);
             return;
         }
-        request.setAttribute("document",n);
-        
+        request.setAttribute("document",doc);
+
     }
 
 }

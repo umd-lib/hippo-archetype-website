@@ -1,6 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<%@ page trimDirectiveWhitespaces="true" %>
-<%@ taglib uri="http://www.hippoecm.org/jsp/hst/core" prefix='hst'%>
+<%@ include file="/WEB-INF/jspf/htmlTags.jspf" %>
+<%--@elvariable id="headerName" type="java.lang.String"--%>
 
-<h1>HST Website</h1>
+<h1><c:out value="${headerName}"/></h1>
+
+<fmt:message var="submitText" key="search.submit.text"/>
+<hst:link var="link" path="/search"/>
+<form action="${link}" method="POST">
+ <input type="text" name="query"/>
+ <input type="submit" value="${submitText}"/>
+</form>

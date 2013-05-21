@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
-<sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0"
-         sv:name="hippo:initialize">
+<sv:node xmlns:sv="http://www.jcp.org/jcr/sv/1.0" xmlns:ae="http://www.onehippo.org/jcr/autoexport/1.0" sv:name="hippo:initialize" ae:id="public">
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
     <sv:value>hippo:initializefolder</sv:value>
   </sv:property>
 
+  <!-- Document types -->
   <sv:node sv:name="public">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -20,7 +19,6 @@
       <sv:value>namespaces/public.cnd</sv:value>
     </sv:property>
   </sv:node>
-  
   <sv:node sv:name="public-namespace">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -35,7 +33,6 @@
       <sv:value>/hippo:namespaces</sv:value>
     </sv:property>
   </sv:node>
-  
   <sv:node sv:name="public-basedocument-namespace">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -50,7 +47,6 @@
       <sv:value>/hippo:namespaces/public</sv:value>
     </sv:property>
   </sv:node>
-  
   <sv:node sv:name="public-textdocument-namespace">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -65,7 +61,6 @@
       <sv:value>/hippo:namespaces/public</sv:value>
     </sv:property>
   </sv:node>
-  
   <sv:node sv:name="public-newsdocument-namespace">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -80,7 +75,20 @@
       <sv:value>/hippo:namespaces/public</sv:value>
     </sv:property>
   </sv:node>
-
+  <sv:node sv:name="public-hst-channels">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10052</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/channels.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst</sv:value>
+    </sv:property>
+  </sv:node>
   <sv:node sv:name="public-content">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -95,7 +103,6 @@
       <sv:value>/</sv:value>
     </sv:property>
   </sv:node>
-
   <sv:node sv:name="public-hst-sites">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -110,7 +117,6 @@
       <sv:value>/hst:hst</sv:value>
     </sv:property>
   </sv:node>
-  
   <sv:node sv:name="public-hst-configurations">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -125,7 +131,22 @@
       <sv:value>/hst:hst</sv:value>
     </sv:property>
   </sv:node>
-  
+  <sv:node sv:name="public-hst-hosts">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>11062</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/hosts.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst</sv:value>
+    </sv:property>
+  </sv:node>
+
+  <!-- Website -->
   <sv:node sv:name="public-sitemap">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -140,7 +161,6 @@
       <sv:value>/hst:hst/hst:configurations/public</sv:value>
     </sv:property>
   </sv:node>
-  
   <sv:node sv:name="public-sitemenus">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -155,7 +175,6 @@
       <sv:value>/hst:hst/hst:configurations/public</sv:value>
     </sv:property>
   </sv:node>
-  
   <sv:node sv:name="public-configuration-pages">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -170,7 +189,118 @@
       <sv:value>/hst:hst/hst:configurations/public</sv:value>
     </sv:property>
   </sv:node>
-  
+  <sv:node sv:name="public-configuration-pages-home">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10058.1</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/pages/home.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:pages</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-configuration-pages-newsoverview">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10058.1</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/pages/newsoverview.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:pages</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-configuration-pages-newspage">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10058.1</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/pages/newspage.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:pages</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-configuration-pages-overview">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10058.1</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/pages/overview.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:pages</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-configuration-pages-search">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10058.1</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/pages/search.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:pages</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-configuration-pages-pagenotfound">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10058.1</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/pages/pagenotfound.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:pages</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-configuration-pages-standard">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10058.1</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/pages/standard.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:pages</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-configuration-pages-textpage">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10058.1</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/pages/textpage.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:pages</sv:value>
+    </sv:property>
+  </sv:node>
   <sv:node sv:name="public-configuration-components">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -185,7 +315,90 @@
       <sv:value>/hst:hst/hst:configurations/public</sv:value>
     </sv:property>
   </sv:node>
-
+  <sv:node sv:name="public-configuration-components-content">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10059.1</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/components/content.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:components</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-configuration-components-header">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10059.2</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/components/header.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:components</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-configuration-components-leftmenu">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10059.3</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/components/leftmenu.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:components</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-configuration-components-notfound">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10059.4</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/components/notfound.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:components</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-configuration-components-overview">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10059.5</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/components/overview.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:components</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-configuration-components-search">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10059.5</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public/components/search.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public/hst:components</sv:value>
+    </sv:property>
+  </sv:node>
   <sv:node sv:name="public-configuration-templates">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -200,7 +413,6 @@
       <sv:value>/hst:hst/hst:configurations/public</sv:value>
     </sv:property>
   </sv:node>
-
   <sv:node sv:name="public-configuration-catalog">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -216,8 +428,82 @@
     </sv:property>
   </sv:node>
 
-  <!-- Content -->
+  <!-- Subsite components -->
+  <sv:node sv:name="public-subsite-common-configuration-components">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10080</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public-subsite-common/components.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public-subsite-common</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-subsite-common-configuration-components-content">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10080.1</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public-subsite-common/components/content.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public-subsite-common/hst:components</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-subsite-common-configuration-components-header">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10080.2</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public-subsite-common/components/header.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public-subsite-common/hst:components</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-subsite-common-configuration-components-leftmenu">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10080.3</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public-subsite-common/components/leftmenu.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public-subsite-common/hst:components</sv:value>
+    </sv:property>
+  </sv:node>
+  
+  
+  <!-- Subsite templates -->
+  <sv:node sv:name="public-subsite-common-configuration-templates">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>10081</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/configurations/public-subsite-common/templates.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:configurations/public-subsite-common</sv:value>
+    </sv:property>
+  </sv:node>
 
+  <!-- Content -->
   <sv:node sv:name="public-documents">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -232,7 +518,6 @@
       <sv:value>/content/documents</sv:value>
     </sv:property>
   </sv:node>
-
   <sv:node sv:name="public-common">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -244,30 +529,25 @@
       <sv:value>content/documents/public/common.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-     <sv:value>/content/documents/public</sv:value>
+      <sv:value>/content/documents/public</sv:value>
     </sv:property>
-   </sv:node>
-
-
+  </sv:node>
   <sv:node sv:name="public-news">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>10404</sv:value>
+      <sv:value>10404.1</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
       <sv:value>content/documents/public/news.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-     <sv:value>/content/documents/public</sv:value>
+      <sv:value>/content/documents/public</sv:value>
     </sv:property>
-   </sv:node>
+  </sv:node>
 
-  <!-- /Content -->
-  
   <!-- Gallery -->
-  
   <sv:node sv:name="public-gallery">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -279,55 +559,108 @@
       <sv:value>content/gallery/public.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-     <sv:value>/content/gallery</sv:value>
+      <sv:value>/content/gallery</sv:value>
     </sv:property>
-   </sv:node>
-  
-  <!-- /Gallery -->
+  </sv:node>
 
-  <sv:node sv:name="public-hosts">
+   <!-- Blueprints -->
+  <sv:node sv:name="public-hst-blueprints-public-subsite">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>11062</sv:value>
+      <sv:value>11001</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>hst/hosts.xml</sv:value>
+      <sv:value>hst/blueprints/public-subsite.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hst:hst</sv:value>
+      <sv:value>/hst:hst/hst:blueprints</sv:value>
     </sv:property>
   </sv:node>
-  
-  <!-- CMS -->
-
-  <sv:node sv:name="public-cms-services-localhost">
+  <sv:node sv:name="public-hst-blueprints-public-subsite-sitemap">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>12001</sv:value>
+      <sv:value>11002</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>cms/cms-services-localhost.xml</sv:value>
+      <sv:value>hst/blueprints/public-subsite/sitemap.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
-      <sv:value>/hippo:configuration/hippo:frontend/cms</sv:value>
+      <sv:value>/hst:hst/hst:blueprints/public-subsite/hst:configuration</sv:value>
+    </sv:property>
+  </sv:node>
+  <sv:node sv:name="public-hst-blueprints-public-subsite-pages">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>11003</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/blueprints/public-subsite/pages.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:blueprints/public-subsite/hst:configuration</sv:value>
+    </sv:property>
+  </sv:node>
+  
+  <sv:node sv:name="public-hst-blueprints-public-subsite-sitemenus">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>11004</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>hst/blueprints/public-subsite/sitemenus.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hst:hst/hst:blueprints/public-subsite/hst:configuration</sv:value>
     </sv:property>
   </sv:node>
 
-  <!-- /CMS -->
+  <!-- Subsites bootstrap content -->
+  <sv:node sv:name="public-hippo-queries-new-subsite-template-public-subsite">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>11900</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>configuration/queries/templates/new-subsite/public-subsite.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hippo:configuration/hippo:queries/hippo:templates/new-subsite/hippostd:templates</sv:value>
+    </sv:property>
+  </sv:node>
 
+  <!-- CMS configuration - xinha rich text editor -->
+  <sv:node sv:name="cmsconfig-xinha">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>12002</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>configuration/richtextconfig/xinha.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hippo:namespaces/hippostd/html/editor:templates/_default_</sv:value>
+    </sv:property>
+  </sv:node>
 
-<!-- Formdata node and a security domain for it -->
-
+  <!-- Formdata node and a security domain for it -->
   <sv:node sv:name="public-formdata-container">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>hippo-configuration/forms/formdata.xml</sv:value>
+      <sv:value>configuration/forms/formdata.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/</sv:value>
@@ -341,7 +674,7 @@
       <sv:value>hippo:initializeitem</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentresource" sv:type="String">
-      <sv:value>hippo-configuration/forms/formdata-domain.xml</sv:value>
+      <sv:value>configuration/forms/formdata-domain.xml</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:contentroot" sv:type="String">
       <sv:value>/hippo:configuration/hippo:domains</sv:value>
@@ -394,6 +727,20 @@
       <sv:value>13100.2</sv:value>
     </sv:property>
   </sv:node>
+  <sv:node sv:name="public-user-writablesiteuser">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>security/user-writablesiteuser.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hippo:configuration/hippo:users</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>13100.2</sv:value>
+    </sv:property>
+  </sv:node>
   <sv:node sv:name="public-groups-author-add">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -422,6 +769,20 @@
       <sv:value>13100.4</sv:value>
     </sv:property>
   </sv:node>
+  <sv:node sv:name="public-groups-webmaster-add">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hippo:configuration/hippo:groups/webmaster/hipposys:members</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>13100.5</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentpropadd" sv:multiple="true" sv:type="String">
+      <sv:value>editor</sv:value>
+    </sv:property>
+  </sv:node>
   <sv:node sv:name="public-group-sitegroup">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -433,9 +794,25 @@
       <sv:value>/hippo:configuration/hippo:groups</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>13100.5</sv:value>
+      <sv:value>13100.6</sv:value>
     </sv:property>
   </sv:node>
+  
+  <sv:node sv:name="public-group-writable-sitegroup">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>security/group-writable-sitegroup.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hippo:configuration/hippo:groups</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>13100.6</sv:value>
+    </sv:property>
+  </sv:node>
+  
   <sv:node sv:name="public-sitegroup-read-everywhere">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hippo:initializeitem</sv:value>
@@ -447,7 +824,8 @@
       <sv:value>/hippo:configuration/hippo:domains/everywhere</sv:value>
     </sv:property>
     <sv:property sv:name="hippo:sequence" sv:type="Double">
-      <sv:value>13100.6</sv:value>
+      <sv:value>13100.7</sv:value>
     </sv:property>
   </sv:node>
+  
 </sv:node>

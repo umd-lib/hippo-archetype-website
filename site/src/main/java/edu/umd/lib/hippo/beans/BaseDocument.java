@@ -1,4 +1,3 @@
-
 package edu.umd.lib.hippo.beans;
 
 import org.hippoecm.hst.content.beans.Node;

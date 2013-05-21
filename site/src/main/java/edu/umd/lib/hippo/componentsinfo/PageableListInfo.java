@@ -1,12 +1,10 @@
-
 package edu.umd.lib.hippo.componentsinfo;
 
-import org.hippoecm.hst.configuration.components.Parameter;
-import org.hippoecm.hst.pagecomposer.jaxrs.model.ComponentWrapper;
-
+import org.hippoecm.hst.core.parameters.Parameter;
 
 public interface PageableListInfo extends GeneralListInfo {
 
-    @Parameter(name = "pagesVisible",defaultValue="true", displayName = "Show pages", typeHint = ComponentWrapper.ParameterType.BOOLEAN)
+    @Parameter(name = "pagesVisible", defaultValue="true", displayName = "Show pages")
     Boolean isPagesVisible();
+
 }

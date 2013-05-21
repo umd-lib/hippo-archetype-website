@@ -1,24 +1,22 @@
-
 package edu.umd.lib.hippo.componentsinfo;
 
-import org.hippoecm.hst.configuration.components.Parameter;
-import org.hippoecm.hst.pagecomposer.jaxrs.model.ComponentWrapper;
-
+import org.hippoecm.hst.core.parameters.Parameter;
 
 public interface GeneralListInfo  {
 
-    @Parameter(name = "title",defaultValue="Overview", displayName = "The title of the page", typeHint = ComponentWrapper.ParameterType.STRING)
+    @Parameter(name = "title", displayName = "The title of the page", defaultValue="Overview")
     String getTitle();
 
-    @Parameter(name = "pageSize", defaultValue="10", typeHint = ComponentWrapper.ParameterType.NUMBER, displayName = "Page Size")
+    @Parameter(name = "pageSize", displayName = "Page Size", defaultValue="10")
     int getPageSize();
 
-    @Parameter(name = "docType", defaultValue="public:basedocument", displayName = "Document Type", typeHint = ComponentWrapper.ParameterType.STRING)
+    @Parameter(name = "docType", displayName = "Document Type", defaultValue="public:basedocument")
     String getDocType();
 
-    @Parameter(name = "sortBy", displayName = "Sort By Property", typeHint = ComponentWrapper.ParameterType.STRING)
+    @Parameter(name = "sortBy", displayName = "Sort By Property")
     String getSortBy();
 
-    @Parameter(name = "sortOrder",defaultValue="descending", displayName = "Sort Order", typeHint = ComponentWrapper.ParameterType.STRING)
+    @Parameter(name = "sortOrder", displayName = "Sort Order", defaultValue="descending")
     String getSortOrder();
+
 }

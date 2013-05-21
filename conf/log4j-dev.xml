@@ -40,7 +40,7 @@
     <layout class="org.apache.log4j.PatternLayout"> 
       <param name="ConversionPattern" value="%d{dd.MM.yyyy HH:mm:ss} %-5p [%C.%M():%L] %m%n"/>
     </layout> 
- </appender> 
+  </appender> 
 
   <!-- ====================================================================== -->
   <!-- L O G G E R S                                                          -->
@@ -71,6 +71,10 @@
     <level value="info"/>
     <appender-ref ref="audit"/>
   </logger>
+  <logger additivity="false" name="org.onehippo.audit">
+    <level value="info"/>
+    <appender-ref ref="audit"/>
+  </logger>
 
   <!-- Site logging -->
   <logger additivity="false" name="org.hippoecm.hst">
@@ -78,7 +82,37 @@
     <appender-ref ref="site"/>
     <appender-ref ref="console"/>
   </logger>
-
+  
+  <logger additivity="false" name="freemarker">
+    <level value="warn"/>
+    <appender-ref ref="site"/>
+    <appender-ref ref="console"/>
+  </logger>
+  
+  <logger additivity="false" name="org.apache.cxf">
+    <level value="warn"/>
+    <appender-ref ref="site"/>
+    <appender-ref ref="console"/>
+  </logger>
+  
+  <logger additivity="false" name="javax.ws.rs.core">
+    <level value="warn"/>
+    <appender-ref ref="site"/>
+    <appender-ref ref="console"/>
+  </logger>
+  
+  <logger additivity="false" name="org.apache.commons.pool">
+    <level value="warn"/>
+    <appender-ref ref="site"/>
+    <appender-ref ref="console"/>
+  </logger>
+  
+  <logger additivity="false" name="org.apache.commons.beanutils">
+    <level value="warn"/>
+    <appender-ref ref="site"/>
+    <appender-ref ref="console"/>
+  </logger>
+  
   <!-- too many caching warnings -->
   <logger name="org.apache.jackrabbit.core.state">
     <level value="error"/>
@@ -108,7 +142,7 @@
 
   <!-- more info wanted -->
   <logger name="org.apache.jackrabbit.core.persistence.bundle">
-    <level value="info"/>
+    <level value="warn"/>
   </logger>
   <logger name="org.hippoecm.repository.jackrabbit.persistence">
     <level value="info"/>
@@ -116,7 +150,7 @@
   <logger name="org.hippoecm.repository.updater">
     <level value="info"/>
   </logger>
-  <logger name="org.hippoecm.repository.export">
+  <logger name="org.onehippo.cms7.autoexport">
     <level value="info"/>
   </logger>
 

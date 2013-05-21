@@ -3,6 +3,17 @@
   <sv:property sv:name="jcr:primaryType" sv:type="Name">
     <sv:value>hipposys:domain</sv:value>
   </sv:property>
+  <sv:node sv:name="hipposys:authrole">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hipposys:authrole</sv:value>
+    </sv:property>
+    <sv:property sv:name="hipposys:groups" sv:type="String" sv:multiple="true">
+      <sv:value>sitewriters</sv:value>
+    </sv:property>
+    <sv:property sv:name="hipposys:role" sv:type="String">
+      <sv:value>readwrite</sv:value>
+    </sv:property>
+  </sv:node>
   <sv:node sv:name="formdata-nodes">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hipposys:domainrule</sv:value>
@@ -27,17 +38,6 @@
         <sv:value>hst:formdata</sv:value>
       </sv:property>
     </sv:node>
-  </sv:node>
-  <sv:node sv:name="hipposys:authrole">
-    <sv:property sv:name="jcr:primaryType" sv:type="Name">
-      <sv:value>hipposys:authrole</sv:value>
-    </sv:property>
-    <sv:property sv:name="hipposys:groups" sv:type="String" sv:multiple="true">
-      <sv:value>sitegroup</sv:value>
-    </sv:property>
-    <sv:property sv:name="hipposys:role" sv:type="String">
-      <sv:value>readwrite</sv:value>
-    </sv:property>
   </sv:node>
   <sv:node sv:name="formdatacontainer-nodes">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">

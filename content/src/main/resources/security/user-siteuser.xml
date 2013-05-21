@@ -8,7 +8,7 @@
     <sv:value>true</sv:value>
   </sv:property>
   <sv:property sv:name="hipposys:password" sv:type="String">
-    <sv:value>siteuser</sv:value>
+    <sv:value>siteuserpass</sv:value>
   </sv:property>
   <sv:property sv:name="hipposys:securityprovider" sv:type="String">
     <sv:value>internal</sv:value>
