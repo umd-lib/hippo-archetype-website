@@ -17,8 +17,12 @@ mvn archetype:generate \
 -DarchetypeGroupId=org.onehippo.cms7 \
 -DarchetypeArtifactId=hippo-archetype-website \
 -DarchetypeVersion=$VERSION \
+-DgroupId=edu.umd.lib.hippo \
+-DartifactId=public \
+-DprojectName="UM Libraries Public Website" \
+-DprojectDescription="UM Libraries Public Website" \
 -DinteractiveMode=false
 
 # put new files into place
-(cd myhippoproject; tar cf - *) | tar xf -
-rm -r myhippoproject
+(cd public; tar cf - *) | tar xf -
+rm -r public
