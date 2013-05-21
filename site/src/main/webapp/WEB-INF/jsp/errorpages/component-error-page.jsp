@@ -1,10 +1,8 @@
-<%@ include file="/WEB-INF/jspf/htmlTags.jspf" %>
-<%--@elvariable id="errorComponentWindow" type="org.hippoecm.hst.core.container.HstComponentWindow"--%>
+<%@ page language="java" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<c:if test="${not empty errorComponentWindow.componentExceptions}">
-  <ul>
-    <c:forEach var="componentException" items="${errorComponentWindow.componentExceptions}">
-      <li>${fn:escapeXml(componentException.message)}</li>
-    </c:forEach>
-  </ul>
-</c:if>
+<ul>
+<c:forEach var="componentException" items="${errorComponentWindow.componentExceptions}">
+  <li>${componentException.message}</li>
+</c:forEach>
+</ul>

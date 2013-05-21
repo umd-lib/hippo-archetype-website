@@ -3,57 +3,55 @@
   <modelVersion>4.0.0</modelVersion>
 
   <parent>
-    <groupId>org.example</groupId>
-    <artifactId>myhippoproject</artifactId>
+    <groupId>edu.umd.lib.hippo</groupId>
+    <artifactId>public</artifactId>
     <version>1.01.00-SNAPSHOT</version>
   </parent>
 
-  <name>My Hippo Project CMS</name>
-  <description>My Hippo Project CMS</description>
-  <artifactId>myhippoproject-cms</artifactId>
+  <name>UM Libraries Public Website CMS</name>
+  <description>UM Libraries Public Website CMS</description>
+  <artifactId>public-cms</artifactId>
   <packaging>war</packaging>
 
   <dependencies>
-    <dependency>
-      <groupId>org.onehippo.cms7.hst.dependencies</groupId>
-      <artifactId>hst-repository-dependencies</artifactId>
-      <type>pom</type>
-    </dependency>
- 
-    <dependency>
-      <groupId>org.onehippo.cms7.hst.dependencies</groupId>
-      <artifactId>hst-cms-dependencies</artifactId>
-      <type>pom</type>
-    </dependency>
-
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
       <artifactId>hippo-package-cms-dependencies</artifactId>
       <type>pom</type>
     </dependency>
+    
+    <dependency>
+      <groupId>org.onehippo.cms7</groupId>
+      <artifactId>hippo-package-cms-resources</artifactId>
+      <type>war</type>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7.hst.toolkit-resources.addon.toolkit-cnd</groupId>
+      <artifactId>hst-addon-cnd</artifactId>
+    </dependency>
+
+    <dependency>
+      <groupId>org.onehippo.cms7.hst.toolkit-resources.addon</groupId>
+      <artifactId>hst-addon-repository</artifactId>
+    </dependency>
 
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-addon-channel-manager-frontend</artifactId>
+      <artifactId>hippo-addon-hst-configuration-editor-frontend</artifactId>
     </dependency>
 
     <dependency>
       <groupId>org.onehippo.cms7</groupId>
-      <artifactId>hippo-addon-channel-manager-repository</artifactId>
+      <artifactId>hippo-addon-hst-configuration-editor-repository</artifactId>
     </dependency>
 
     <dependency>
-      <groupId>org.example</groupId>
-      <artifactId>myhippoproject-bootstrap-configuration</artifactId>
-      <version>${project.version}</version>
+      <groupId>edu.umd.lib.hippo</groupId>
+      <artifactId>public-content</artifactId>
+      <version>1.01.00-SNAPSHOT</version>
     </dependency>
-
-    <dependency>
-      <groupId>org.example</groupId>
-      <artifactId>myhippoproject-bootstrap-content</artifactId>
-      <version>${project.version}</version>
-    </dependency>
-
+    
     <!--  Gallery picker dependency -->
     <dependency>
       <groupId>org.onehippo.addon.frontend.gallerypicker</groupId>
@@ -75,13 +73,12 @@
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-war-plugin</artifactId>
         <configuration>
-          <archive>
-            <manifestEntries>
-              <Hippo-Release-Version>${hippo.release.version}</Hippo-Release-Version>
-              <Project-Version>${project.version}</Project-Version>
-              <Project-Build>${buildNumber}</Project-Build>
-            </manifestEntries>
-          </archive>
+          <overlays>
+            <overlay>
+              <groupId>org.onehippo.cms7</groupId>
+              <artifactId>hippo-package-cms-resources</artifactId>
+            </overlay>
+          </overlays>
         </configuration>
       </plugin>
       <plugin>
