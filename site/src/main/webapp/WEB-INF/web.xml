@@ -275,6 +275,11 @@
   </security-role>
 
   <error-page>
+    <error-code>400</error-code>
+    <location>/WEB-INF/jsp/errorpages/ErrorPage400.jsp</location>
+  </error-page>
+
+  <error-page>
     <error-code>401</error-code>
     <location>/WEB-INF/jsp/errorpages/ErrorPage401.jsp</location>
   </error-page>
