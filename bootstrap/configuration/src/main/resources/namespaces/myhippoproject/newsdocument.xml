@@ -159,7 +159,6 @@
       </sv:property>
       <sv:property sv:name="jcr:mixinTypes" sv:type="Name">
         <sv:value>hippo:harddocument</sv:value>
-        <sv:value>hippotranslation:translated</sv:value>
       </sv:property>
       <sv:property sv:name="hippo:availability" sv:type="String"/>
       <sv:property sv:name="hippostd:holder" sv:type="String">

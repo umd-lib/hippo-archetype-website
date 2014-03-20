@@ -55,7 +55,8 @@
   -->
   <context-param>
     <param-name>hst-beans-annotated-classes</param-name>
-    <param-value>classpath*:org/example/beans/**/*.class</param-value>
+    <param-value>classpath*:org/example/beans/**/*.class
+      ,classpath*:org/onehippo/forge/**/*.class</param-value>
   </context-param>
 
   <filter>
@@ -273,11 +274,6 @@
     <description>Default role of Hippo Repository</description>
     <role-name>everybody</role-name>
   </security-role>
-
-  <error-page>
-    <error-code>400</error-code>
-    <location>/WEB-INF/jsp/errorpages/ErrorPage400.jsp</location>
-  </error-page>
 
   <error-page>
     <error-code>401</error-code>
