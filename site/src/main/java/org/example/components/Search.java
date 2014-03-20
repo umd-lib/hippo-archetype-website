@@ -18,7 +18,7 @@ public class Search extends BaseComponent {
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
 
        SearchInfo info = getComponentParametersInfo(request);
-       HippoBean scope = getSiteContentBaseBean(request);
+       HippoBean scope = request.getRequestContext().getSiteContentBaseBean();
 
        String query = getPublicRequestParameter(request, "query");
 

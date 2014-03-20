@@ -856,4 +856,20 @@
     </sv:property>
   </sv:node>
 
+  <!-- channel manager fine grained locking -->
+  <sv:node sv:name="gogreen-channelmanager-fine-grained-locking">
+    <sv:property sv:name="jcr:primaryType" sv:type="Name">
+      <sv:value>hippo:initializeitem</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentresource" sv:type="String">
+      <sv:value>configuration/channelmanager/channelmanager-fine-grained-locking.xml</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:contentroot" sv:type="String">
+      <sv:value>/hippo:configuration/hippo:frontend/cms/hippo-channel-manager</sv:value>
+    </sv:property>
+    <sv:property sv:name="hippo:sequence" sv:type="Double">
+      <sv:value>34000.0</sv:value>
+    </sv:property>
+  </sv:node>
+
 </sv:node>

@@ -22,12 +22,12 @@ public class ListView extends BaseComponent {
        HippoBean scopeBean = null;
 
        String scope = info.getScope();
-       if(scope == null) {
+       if (scope == null) {
            throw new HstComponentException("Scope is not allowed to be null for a List component. Cannot create a list");
        }
 
-       scopeBean = getSiteContentBaseBean(request);
-       if("".equals(scope) || "/".equals(scope)) {
+       scopeBean = request.getRequestContext().getSiteContentBaseBean();
+       if ("".equals(scope) || "/".equals(scope)) {
            // the scope is the root content bean of this site, scopeBean is already ok.
        } else {
            // strip leading and trailing slashes
@@ -41,7 +41,7 @@ public class ListView extends BaseComponent {
            }
        }
 
-       if(scope == null) {
+       if (scope == null) {
            response.setStatus(404);
            throw new HstComponentException("For an Overview component there must be a content bean available to search below. Cannot create an overview");
        }

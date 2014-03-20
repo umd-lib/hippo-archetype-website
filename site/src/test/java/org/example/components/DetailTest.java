@@ -1,11 +1,13 @@
 package org.example.components;
 
-import javax.jcr.Session;
-import javax.servlet.ServletContext;
-
+import java.util.Collections;
 import org.hippoecm.hst.configuration.hosting.Mount;
+import org.hippoecm.hst.container.ModifiableRequestContextProvider;
 import org.hippoecm.hst.content.beans.manager.ObjectConverter;
+import org.hippoecm.hst.content.beans.manager.ObjectConverterImpl;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
+import org.hippoecm.hst.content.tool.ContentBeansTool;
+import org.hippoecm.hst.content.tool.DefaultContentBeansTool;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.core.component.HstResponse;
 import org.hippoecm.hst.core.request.ComponentConfiguration;
@@ -17,14 +19,16 @@ import org.hippoecm.hst.mock.core.component.MockHstRequest;
 import org.hippoecm.hst.mock.core.request.MockComponentConfiguration;
 import org.hippoecm.hst.mock.core.request.MockHstRequestContext;
 import org.hippoecm.hst.mock.core.request.MockResolvedSiteMapItem;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
-import static junit.framework.Assert.assertEquals;
 import static org.easymock.EasyMock.createMock;
 import static org.easymock.EasyMock.expect;
 import static org.easymock.EasyMock.expectLastCall;
 import static org.easymock.EasyMock.replay;
 import static org.easymock.EasyMock.verify;
+import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNull;
 
 /**
@@ -32,41 +36,42 @@ import static org.junit.Assert.assertNull;
  */
 public class DetailTest {
 
+    private ContentBeansTool contentBeansTool;
+
+    @Before
+    public void setUp() throws Exception {
+        contentBeansTool = new DefaultContentBeansTool(null) {
+            @Override
+            public ObjectConverter getObjectConverter() {
+                return new ObjectConverterImpl(Collections.EMPTY_MAP, new String[0]);
+            }
+        };
+    }
+
+    @After
+    public void tearDown() throws Exception {
+        ModifiableRequestContextProvider.clear();
+    }
+
     @Test
     public void doBeforeRender_FoundBean() throws Exception {
         HippoBean detailBean = new MockHippoBean();
 
-        ServletContext servletContext = createMock(ServletContext.class);
         ComponentConfiguration componentConfiguration = new MockComponentConfiguration();
-        ObjectConverter objectConverter = createMock(ObjectConverter.class);
-
         HstRequest request = new MockHstRequest();
-        Session session = createMock(Session.class);
         HstResponse response = createMock(HstResponse.class);
-
         HstRequestContext requestContext = new MockHstRequestContext();
-        ((MockHstRequestContext) requestContext).setSession(session);
-        ResolvedMount resolvedMount = createMock(ResolvedMount.class);
-        Mount mount = createMock(Mount.class);
-        ((MockHstRequestContext) requestContext).setResolvedMount(resolvedMount);
+        ((MockHstRequestContext) requestContext).setContentBean(detailBean);
+        ((MockHstRequestContext) requestContext).setContentBeansTool(contentBeansTool);
 
-        ResolvedSiteMapItem resolvedSiteMapItem = new MockResolvedSiteMapItem();
-        ((MockResolvedSiteMapItem) resolvedSiteMapItem).setRelativeContentPath("common/detail");
-        ((MockHstRequestContext) requestContext).setResolvedSiteMapItem(resolvedSiteMapItem);
         ((MockHstRequest) request).setRequestContext(requestContext);
-
-        expect(resolvedMount.getMount()).andReturn(mount);
-        expect(mount.getContentPath()).andReturn("/hst:hst/hst:sites/mysite-live/hst:content");
-        expect(servletContext.getAttribute("org.hippoecm.hst.component.support.bean.BaseHstComponent.objectConverter")).andReturn(objectConverter).anyTimes();
-
-        expect(objectConverter.getObject(session, "/hst:hst/hst:sites/mysite-live/hst:content/common/detail")).andReturn(detailBean);
-
-        replay(servletContext, objectConverter, resolvedMount, mount, response, session);
+        ModifiableRequestContextProvider.set(requestContext);
+        replay(response);
 
         Detail detail = new Detail();
-        detail.init(servletContext, componentConfiguration);
+        detail.init(null, componentConfiguration);
         detail.doBeforeRender(request, response);
-        verify(servletContext, objectConverter, resolvedMount, mount, response, session);
+        verify(response);
 
         assertEquals(detailBean, request.getAttribute("document"));
     }
@@ -74,40 +79,38 @@ public class DetailTest {
     @Test
     public void doBeforeRender_MissingBean() throws Exception {
 
-        ServletContext servletContext = createMock(ServletContext.class);
         ComponentConfiguration componentConfiguration = new MockComponentConfiguration();
-        ObjectConverter objectConverter = createMock(ObjectConverter.class);
-
         HstRequest request = new MockHstRequest();
-        Session session = createMock(Session.class);
         HstResponse response = createMock(HstResponse.class);
 
         HstRequestContext requestContext = new MockHstRequestContext();
-        ((MockHstRequestContext) requestContext).setSession(session);
         ResolvedMount resolvedMount = createMock(ResolvedMount.class);
         Mount mount = createMock(Mount.class);
         ((MockHstRequestContext) requestContext).setResolvedMount(resolvedMount);
+        ((MockHstRequestContext) requestContext).setContentBeansTool(contentBeansTool);
 
         ResolvedSiteMapItem resolvedSiteMapItem = new MockResolvedSiteMapItem();
         ((MockResolvedSiteMapItem) resolvedSiteMapItem).setRelativeContentPath("common/detail");
         ((MockHstRequestContext) requestContext).setResolvedSiteMapItem(resolvedSiteMapItem);
+
         ((MockHstRequest) request).setRequestContext(requestContext);
+        ModifiableRequestContextProvider.set(requestContext);
 
         expect(resolvedMount.getMount()).andReturn(mount);
         expect(mount.getContentPath()).andReturn("/hst:hst/hst:sites/mysite-live/hst:content");
-        expect(servletContext.getAttribute("org.hippoecm.hst.component.support.bean.BaseHstComponent.objectConverter")).andReturn(objectConverter).anyTimes();
 
-        expect(objectConverter.getObject(session, "/hst:hst/hst:sites/mysite-live/hst:content/common/detail")).andReturn(null);
+        ((MockHstRequest) request).setRequestContext(requestContext);
 
         response.setStatus(HstResponse.SC_NOT_FOUND);
         expectLastCall();
-        replay(servletContext, objectConverter, resolvedMount, mount, response, session);
+        replay(response);
 
         Detail detail = new Detail();
-        detail.init(servletContext, componentConfiguration);
+        detail.init(null, componentConfiguration);
         detail.doBeforeRender(request, response);
-        verify(servletContext, objectConverter, resolvedMount, mount, response, session);
+        verify(response);
 
         assertNull(request.getAttribute("document"));
     }
+
 }

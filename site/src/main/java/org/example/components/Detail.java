@@ -15,7 +15,7 @@ public class Detail extends BaseHstComponent {
     @Override
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
 
-        HippoBean doc = getContentBean(request);
+        HippoBean doc = request.getRequestContext().getContentBean();
 
         if (doc == null) {
             log.warn("Did not find a content bean for relative content path '{}' for pathInfo '{}'", 

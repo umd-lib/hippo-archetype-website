@@ -18,9 +18,9 @@ public class Overview extends BaseComponent {
     public void doBeforeRender(final HstRequest request, final HstResponse response) throws HstComponentException {
 
        PageableListInfo info = getComponentParametersInfo(request);
-       HippoBean scope = getContentBean(request);
+       HippoBean scope = request.getRequestContext().getContentBean();
 
-       if(scope == null) {
+       if (scope == null) {
            response.setStatus(404);
            throw new HstComponentException("For an Overview component there must be a content bean available to search below. Cannot create an overview");
        }

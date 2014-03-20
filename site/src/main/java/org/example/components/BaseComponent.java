@@ -15,6 +15,7 @@ import org.hippoecm.hst.content.beans.query.exceptions.QueryException;
 import org.hippoecm.hst.content.beans.query.filter.Filter;
 import org.hippoecm.hst.content.beans.standard.HippoBean;
 import org.hippoecm.hst.core.component.HstComponentException;
+import org.hippoecm.hst.core.request.HstRequestContext;
 import org.hippoecm.hst.core.component.HstRequest;
 import org.hippoecm.hst.util.SearchInputParsingUtils;
 import org.slf4j.Logger;
@@ -34,11 +35,11 @@ public abstract class BaseComponent extends BaseHstComponent {
      */
 
     protected void createAndExecuteSearch(final HstRequest request, final GeneralListInfo info, final HippoBean scope, final String query) throws HstComponentException {
-        if(scope == null) {
+        if (scope == null) {
             throw new HstComponentException("Scope is not allowed to be null for a search");
         }
         int pageSize = info.getPageSize();
-        if(pageSize == 0) {
+        if (pageSize == 0) {
             log.warn("Empty pageSize or set to null. This is not a valid size. Use default size");
         }
         String docType = info.getDocType();
@@ -47,7 +48,7 @@ public abstract class BaseComponent extends BaseHstComponent {
         String crPageStr = request.getParameter("page");
 
         int crPage = 1;
-        if(crPageStr != null) {
+        if (crPageStr != null) {
             try {
                 crPage = Integer.parseInt(crPageStr);
             } catch (NumberFormatException e) {
@@ -55,19 +56,20 @@ public abstract class BaseComponent extends BaseHstComponent {
             }
         }
 
+        final HstRequestContext requestContext = request.getRequestContext();
+
         @SuppressWarnings("rawtypes")
-        Class filterClass = getObjectConverter().getAnnotatedClassFor(docType);
-        if(filterClass == null) {
+        Class filterClass = requestContext.getContentBeansTool().getObjectConverter().getAnnotatedClassFor(docType);
+        if (filterClass == null) {
             throw new HstComponentException("There is no bean for docType '"+docType+"'. Cannot use '"+docType+"' as in this search");
         }
-
         try {
             @SuppressWarnings("unchecked")
-            HstQuery hstQuery = getQueryManager(request).createQuery(scope, filterClass, true);
+            HstQuery hstQuery = requestContext.getQueryManager().createQuery(scope, filterClass, true);
             hstQuery.setLimit(pageSize);
             hstQuery.setOffset(pageSize * (crPage - 1));
-            if(sortBy != null && !sortBy.isEmpty()) {
-                if(sortOrder == null || sortOrder.isEmpty() || "descending".equals(sortOrder)) {
+            if (sortBy != null && !sortBy.isEmpty()) {
+                if (sortOrder == null || sortOrder.isEmpty() || "descending".equals(sortOrder)) {
                     hstQuery.addOrderByDescending(sortBy);
                 } else {
                     hstQuery.addOrderByAscending(sortBy);
@@ -78,7 +80,7 @@ public abstract class BaseComponent extends BaseHstComponent {
             if (parsedQuery != null && !parsedQuery.equals(query)) {
                 log.debug("Replaced query '{}' with '{}' because it contained invalid chars.", query, parsedQuery);
             }
-            if(!StringUtils.isEmpty(parsedQuery)) {
+            if (!StringUtils.isEmpty(parsedQuery)) {
                 Filter f = hstQuery.createFilter();
                 f.addContains(".", parsedQuery);
                 hstQuery.setFilter(f);
@@ -92,15 +94,15 @@ public abstract class BaseComponent extends BaseHstComponent {
             request.setAttribute("query", parsedQuery);
 
 
-            if(info instanceof PageableListInfo && ((PageableListInfo)info).isPagesVisible()) {
+            if (info instanceof PageableListInfo && ((PageableListInfo)info).isPagesVisible()) {
                 // add pages
-                if(result.getTotalSize() > pageSize) {
+                if (result.getTotalSize() > pageSize) {
                     Collection<Integer> pages = new ArrayList<Integer>();
                     int numberOfPages = result.getTotalSize() / pageSize ;
-                    if(result.getTotalSize() % pageSize != 0) {
+                    if (result.getTotalSize() % pageSize != 0) {
                         numberOfPages++;
                     }
-                    for(int i = 0; i < numberOfPages; i++) {
+                    for (int i = 0; i < numberOfPages; i++) {
                         pages.add(i + 1);
                     }
                     request.setAttribute("pages", pages);
