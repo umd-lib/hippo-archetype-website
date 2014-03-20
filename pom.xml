@@ -5,7 +5,7 @@
   <parent>
     <groupId>org.onehippo.cms7</groupId>
     <artifactId>hippo-cms7-release</artifactId>
-    <version>7.9.0-SNAPSHOT</version>
+    <version>7.9.0-iteration-13</version>
   </parent>
 
   <name>My Hippo Project</name>
@@ -60,9 +60,10 @@
 
   <properties>
 
-    <!--***START temporary override of versions*** -->
+    <!-- ***START temporary override of versions*** -->
     <!-- ***END temporary override of versions*** -->
 
+    <jsp-api.version>2.1</jsp-api.version>
     <jstl.version>1.1.2</jstl.version>
     <taglibs.version>1.1.2</taglibs.version>
     <commons.lang.version>2.6</commons.lang.version>
@@ -215,25 +216,8 @@
             <artifactId>cargo-maven2-plugin</artifactId>
             <configuration>
               <configuration>
-                <deployables>
-                  <deployable>
-                    <type>war</type>
-                    <properties>
-                      <context>/cms</context>
-                    </properties>
-                    <location>${project.basedir}/cms/target/cms.war</location>
-                  </deployable>
-                  <deployable>
-                    <location>${project.basedir}/site/target/site.war</location>
-                    <type>war</type>
-                    <properties>
-                      <context>/site</context>
-                    </properties>
-                  </deployable>
-                </deployables>
                 <properties>
                   <catalina.servlet.uriencoding>UTF-8</catalina.servlet.uriencoding>
-                  <cargo.tomcat.connector.emptySessionPath>false</cargo.tomcat.connector.emptySessionPath>
                 </properties>
                 <configfiles>
                   <configfile>
@@ -252,6 +236,22 @@
                   <project.basedir>${project.basedir}</project.basedir>
                 </systemProperties>
               </container>
+              <deployables>
+                <deployable>
+                  <type>war</type>
+                  <properties>
+                    <context>/cms</context>
+                  </properties>
+                  <location>${project.basedir}/cms/target/cms.war</location>
+                </deployable>
+                <deployable>
+                  <location>${project.basedir}/site/target/site.war</location>
+                  <type>war</type>
+                  <properties>
+                    <context>/site</context>
+                  </properties>
+                </deployable>
+              </deployables>
             </configuration>
           </plugin>
         </plugins>

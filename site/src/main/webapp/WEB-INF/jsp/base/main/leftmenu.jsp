@@ -8,3 +8,4 @@
     </c:forEach>
   </ul>
 </c:if>
+<hst:cmseditmenu menu="${menu}"/>

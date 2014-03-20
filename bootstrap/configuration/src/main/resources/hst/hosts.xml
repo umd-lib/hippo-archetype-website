@@ -22,6 +22,9 @@
   <sv:property sv:name="hst:versioninpreviewheader" sv:type="Boolean">
     <sv:value>true</sv:value>
   </sv:property>
+  <sv:property sv:name="hst:channelmanagersiteauthenticationskipped" sv:type="Boolean">
+    <sv:value>true</sv:value>
+  </sv:property>
   <sv:property sv:name="hst:defaultcontextpath" sv:type="String">
     <sv:value>/site</sv:value>
   </sv:property>
@@ -29,7 +32,6 @@
     <sv:value>dev-localhost</sv:value>
   </sv:property>
   <sv:property sv:name="hst:suffixexclusions" sv:type="String">
-    <sv:value>.do</sv:value>
     <sv:value>.css</sv:value>
     <sv:value>.js</sv:value>
     <sv:value>.pdf</sv:value>

@@ -18,7 +18,7 @@ public class Detail extends BaseHstComponent {
         HippoBean doc = request.getRequestContext().getContentBean();
 
         if (doc == null) {
-            log.warn("Did not find a content bean for relative content path '{}' for pathInfo '{}'", 
+            log.info("Did not find a content bean for relative content path '{}' for pathInfo '{}'",
                          request.getRequestContext().getResolvedSiteMapItem().getRelativeContentPath(),
                          request.getRequestContext().getResolvedSiteMapItem().getPathInfo());
             response.setStatus(404);

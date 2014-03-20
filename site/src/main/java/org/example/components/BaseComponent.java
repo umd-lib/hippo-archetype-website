@@ -40,7 +40,7 @@ public abstract class BaseComponent extends BaseHstComponent {
         }
         int pageSize = info.getPageSize();
         if (pageSize == 0) {
-            log.warn("Empty pageSize or set to null. This is not a valid size. Use default size");
+            log.info("Empty pageSize or set to null. This is not a valid size. Use default size");
         }
         String docType = info.getDocType();
         String sortBy = info.getSortBy();
@@ -52,7 +52,7 @@ public abstract class BaseComponent extends BaseHstComponent {
             try {
                 crPage = Integer.parseInt(crPageStr);
             } catch (NumberFormatException e) {
-                throw new HstComponentException("Invalid page number '" + crPage + '\'');
+                log.info("Invalid page number {}. Use page 1 as default", crPageStr);
             }
         }
 

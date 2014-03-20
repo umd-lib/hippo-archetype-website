@@ -51,54 +51,53 @@
       <sv:value>jsp/search/main/content.jsp</sv:value>
     </sv:property>
   </sv:node>
-  <sv:node sv:name="standard.header">
+  <sv:node sv:name="base.header">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:template</sv:value>
     </sv:property>
     <sv:property sv:name="hst:renderpath" sv:type="String">
-      <sv:value>jsp/standard/header.jsp</sv:value>
+      <sv:value>jsp/base/header.jsp</sv:value>
     </sv:property>
   </sv:node>
-  <sv:node sv:name="standard.main">
+  <sv:node sv:name="base.main">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:template</sv:value>
     </sv:property>
     <sv:property sv:name="hst:renderpath" sv:type="String">
-      <sv:value>jsp/standard/main.jsp</sv:value>
+      <sv:value>jsp/base/main.jsp</sv:value>
     </sv:property>
   </sv:node>
-  <sv:node sv:name="standard.main.leftmenu">
+  <sv:node sv:name="base.main.leftmenu">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:template</sv:value>
     </sv:property>
     <sv:property sv:name="hst:renderpath" sv:type="String">
-      <sv:value>jsp/standard/main/leftmenu.jsp</sv:value>
+      <sv:value>jsp/base/main/leftmenu.jsp</sv:value>
     </sv:property>
   </sv:node>
-  <sv:node sv:name="standard.main.right">
+  <sv:node sv:name="base.main.right">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:template</sv:value>
     </sv:property>
     <sv:property sv:name="hst:renderpath" sv:type="String">
-      <sv:value>jsp/standard/main/right.jsp</sv:value>
+      <sv:value>jsp/base/main/right.jsp</sv:value>
     </sv:property>
   </sv:node>
-  <sv:node sv:name="standard.main.content">
+  <sv:node sv:name="base.main.content">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:template</sv:value>
     </sv:property>
     <sv:property sv:name="hst:renderpath" sv:type="String">
-      <sv:value>jsp/standard/main/content.jsp</sv:value>
+      <sv:value>jsp/base/main/content.jsp</sv:value>
     </sv:property>
   </sv:node>
-  <sv:node sv:name="standard.main.list">
+  <sv:node sv:name="base.main.list">
     <sv:property sv:name="jcr:primaryType" sv:type="Name">
       <sv:value>hst:template</sv:value>
     </sv:property>
     <sv:property sv:name="hst:renderpath" sv:type="String">
-      <sv:value>jsp/standard/main/list.jsp</sv:value>
+      <sv:value>jsp/base/main/list.jsp</sv:value>
     </sv:property>
   </sv:node>
-  
-  
+
 </sv:node>

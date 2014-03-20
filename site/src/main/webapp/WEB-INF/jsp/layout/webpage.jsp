@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <hst:headContributions categoryExcludes="scripts" xhtml="true"/>
+    <hst:headContributions categoryExcludes="scripts" xhtml="true" includePageTitle="true"/>
     <!--[if lt IE 9]>
         <hst:link var="html4shiv" path="/js/html5shiv.js"/>
         <script type="text/javascript" src="${html4shiv}"></script>

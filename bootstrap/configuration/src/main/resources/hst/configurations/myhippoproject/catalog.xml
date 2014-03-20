@@ -31,7 +31,7 @@
         <sv:value>myhippoproject:date</sv:value>
       </sv:property>
       <sv:property sv:name="hst:template" sv:type="String">
-        <sv:value>standard.main.list</sv:value>
+        <sv:value>base.main.list</sv:value>
       </sv:property>
       <sv:property sv:name="hst:xtype" sv:type="String">
         <sv:value>HST.Item</sv:value>
